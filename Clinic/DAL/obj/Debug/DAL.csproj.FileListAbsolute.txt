@@ -1,0 +1,12 @@
+C:\Users\Jay\Documents\ClinicTest\Clinic\DAL\bin\Debug\DAL.dll.config
+C:\Users\Jay\Documents\ClinicTest\Clinic\DAL\bin\Debug\DAL.dll
+C:\Users\Jay\Documents\ClinicTest\Clinic\DAL\bin\Debug\DAL.pdb
+C:\Users\Jay\Documents\ClinicTest\Clinic\DAL\bin\Debug\EntityFramework.dll
+C:\Users\Jay\Documents\ClinicTest\Clinic\DAL\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Jay\Documents\ClinicTest\Clinic\DAL\bin\Debug\EntityFramework.xml
+C:\Users\Jay\Documents\ClinicTest\Clinic\DAL\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Jay\Documents\ClinicTest\Clinic\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
+C:\Users\Jay\Documents\ClinicTest\Clinic\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
+C:\Users\Jay\Documents\ClinicTest\Clinic\DAL\obj\Debug\DAL.csproj.CopyComplete
+C:\Users\Jay\Documents\ClinicTest\Clinic\DAL\obj\Debug\DAL.dll
+C:\Users\Jay\Documents\ClinicTest\Clinic\DAL\obj\Debug\DAL.pdb

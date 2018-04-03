@@ -1,0 +1,231 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="clinicModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="appointment">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TimeSlotId" Type="Int32" Nullable="false" />
+    <Property Name="PatientId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="patient" Relationship="Self.FK__appointme__Patie__1F98B2C1" FromRole="appointments" ToRole="patients" />
+    <NavigationProperty Name="timeslot" Relationship="Self.FK__appointme__TimeS__1EA48E88" FromRole="appointments" ToRole="timeslots" />
+  </EntityType>
+  <EntityType Name="availability">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DoctorId" Type="Int32" Nullable="false" />
+    <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="AvailableFrom" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="AvailableTo" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="AppointmentDuration" Type="Int32" />
+    <NavigationProperty Name="doctor" Relationship="Self.FK__availabil__Docto__72C60C4A" FromRole="availability" ToRole="doctors" />
+    <NavigationProperty Name="timeslots" Relationship="Self.FK__timeslots__Avail__0C85DE4D" FromRole="availability" ToRole="timeslots" />
+  </EntityType>
+  <EntityType Name="doctor">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="FullName" Type="String" MaxLength="101" FixedLength="false" Unicode="false" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
+    <Property Name="Speciality" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Phone" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="LoginPassWord" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="availabilities" Relationship="Self.FK__availabil__Docto__72C60C4A" FromRole="doctors" ToRole="availability" />
+    <NavigationProperty Name="users" Relationship="Self.FK__users__DoctorId__45BE5BA9" FromRole="doctors" ToRole="users" />
+  </EntityType>
+  <EntityType Name="patient">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="FullName" Type="String" MaxLength="101" FixedLength="false" Unicode="false" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
+    <Property Name="Phone" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DateOfBirth" Type="DateTime" Precision="0" />
+    <Property Name="MedicalCardNo" Type="String" MaxLength="16" FixedLength="false" Unicode="false" />
+    <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="LoginPassWord" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="appointments" Relationship="Self.FK__appointme__Patie__1F98B2C1" FromRole="patients" ToRole="appointments" />
+    <NavigationProperty Name="users" Relationship="Self.FK__users__PatientId__46B27FE2" FromRole="patients" ToRole="users" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="timeslot">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AvailabilityId" Type="Int32" Nullable="false" />
+    <Property Name="SlotStart" Type="DateTime" Precision="3" />
+    <Property Name="SlotEnd" Type="DateTime" Precision="3" />
+    <Property Name="SlotDoctorId" Type="Int32" />
+    <Property Name="IsAvailable" Type="Boolean" />
+    <NavigationProperty Name="appointments" Relationship="Self.FK__appointme__TimeS__1EA48E88" FromRole="timeslots" ToRole="appointments" />
+    <NavigationProperty Name="availability" Relationship="Self.FK__timeslots__Avail__0C85DE4D" FromRole="timeslots" ToRole="availability" />
+  </EntityType>
+  <EntityType Name="user">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="LoginPassWord" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="UserRole" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DoctorId" Type="Int32" />
+    <Property Name="PatientId" Type="Int32" />
+    <NavigationProperty Name="doctor" Relationship="Self.FK__users__DoctorId__45BE5BA9" FromRole="users" ToRole="doctors" />
+    <NavigationProperty Name="patient" Relationship="Self.FK__users__PatientId__46B27FE2" FromRole="users" ToRole="patients" />
+  </EntityType>
+  <Association Name="FK__appointme__Patie__1F98B2C1">
+    <End Role="patients" Type="Self.patient" Multiplicity="1" />
+    <End Role="appointments" Type="Self.appointment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="patients">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="appointments">
+        <PropertyRef Name="PatientId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__appointme__TimeS__1EA48E88">
+    <End Role="timeslots" Type="Self.timeslot" Multiplicity="1" />
+    <End Role="appointments" Type="Self.appointment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="timeslots">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="appointments">
+        <PropertyRef Name="TimeSlotId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__availabil__Docto__72C60C4A">
+    <End Role="doctors" Type="Self.doctor" Multiplicity="1" />
+    <End Role="availability" Type="Self.availability" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="doctors">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="availability">
+        <PropertyRef Name="DoctorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__timeslots__Avail__0C85DE4D">
+    <End Role="availability" Type="Self.availability" Multiplicity="1" />
+    <End Role="timeslots" Type="Self.timeslot" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="availability">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="timeslots">
+        <PropertyRef Name="AvailabilityId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__users__DoctorId__45BE5BA9">
+    <End Role="doctors" Type="Self.doctor" Multiplicity="0..1" />
+    <End Role="users" Type="Self.user" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="doctors">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="users">
+        <PropertyRef Name="DoctorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__users__PatientId__46B27FE2">
+    <End Role="patients" Type="Self.patient" Multiplicity="0..1" />
+    <End Role="users" Type="Self.user" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="patients">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="users">
+        <PropertyRef Name="PatientId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="clinicEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="appointments" EntityType="Self.appointment" />
+    <EntitySet Name="availabilities" EntityType="Self.availability" />
+    <EntitySet Name="doctors" EntityType="Self.doctor" />
+    <EntitySet Name="patients" EntityType="Self.patient" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <EntitySet Name="timeslots" EntityType="Self.timeslot" />
+    <EntitySet Name="users" EntityType="Self.user" />
+    <AssociationSet Name="FK__appointme__Patie__1F98B2C1" Association="Self.FK__appointme__Patie__1F98B2C1">
+      <End Role="patients" EntitySet="patients" />
+      <End Role="appointments" EntitySet="appointments" />
+    </AssociationSet>
+    <AssociationSet Name="FK__appointme__TimeS__1EA48E88" Association="Self.FK__appointme__TimeS__1EA48E88">
+      <End Role="timeslots" EntitySet="timeslots" />
+      <End Role="appointments" EntitySet="appointments" />
+    </AssociationSet>
+    <AssociationSet Name="FK__availabil__Docto__72C60C4A" Association="Self.FK__availabil__Docto__72C60C4A">
+      <End Role="doctors" EntitySet="doctors" />
+      <End Role="availability" EntitySet="availabilities" />
+    </AssociationSet>
+    <AssociationSet Name="FK__timeslots__Avail__0C85DE4D" Association="Self.FK__timeslots__Avail__0C85DE4D">
+      <End Role="availability" EntitySet="availabilities" />
+      <End Role="timeslots" EntitySet="timeslots" />
+    </AssociationSet>
+    <AssociationSet Name="FK__users__DoctorId__45BE5BA9" Association="Self.FK__users__DoctorId__45BE5BA9">
+      <End Role="doctors" EntitySet="doctors" />
+      <End Role="users" EntitySet="users" />
+    </AssociationSet>
+    <AssociationSet Name="FK__users__PatientId__46B27FE2" Association="Self.FK__users__PatientId__46B27FE2">
+      <End Role="patients" EntitySet="patients" />
+      <End Role="users" EntitySet="users" />
+    </AssociationSet>
+    <EntitySet Name="database_firewall_rules" EntityType="clinicModel.database_firewall_rules" />
+    <EntitySet Name="doctor_schedule" EntityType="clinicModel.doctor_schedule" />
+  </EntityContainer>
+  <EntityType Name="database_firewall_rules">
+    <Key>
+      <PropertyRef Name="id" />
+      <PropertyRef Name="name" />
+      <PropertyRef Name="start_ip_address" />
+      <PropertyRef Name="end_ip_address" />
+      <PropertyRef Name="create_date" />
+      <PropertyRef Name="modify_date" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="start_ip_address" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="end_ip_address" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="create_date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="modify_date" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="doctor_schedule">
+    <Key>
+      <PropertyRef Name="PatientId" />
+      <PropertyRef Name="PatientName" />
+      <PropertyRef Name="DoctorName" />
+    </Key>
+    <Property Name="PatientId" Type="Int32" Nullable="false" />
+    <Property Name="PatientName" Type="String" Nullable="false" MaxLength="101" FixedLength="false" Unicode="false" />
+    <Property Name="DoctorId" Type="Int32" />
+    <Property Name="DoctorName" Type="String" Nullable="false" MaxLength="101" FixedLength="false" Unicode="false" />
+    <Property Name="SlotStart" Type="DateTime" Precision="3" />
+    <Property Name="SlotEnd" Type="DateTime" Precision="3" />
+  </EntityType>
+</Schema>
