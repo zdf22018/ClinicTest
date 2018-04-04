@@ -19,56 +19,69 @@ namespace Clinic
     /// Interaction logic for Login.xaml
     /// </summary>
     public partial class Login : Window
-    {string SessionUserRole;
-        int SessionId;  // this is the Id of Doctor or Patient or Admin 
+    {
+        string SessionUserRole;
+        public int SessionId { get; set; } // this is the Id of Doctor or Patient or Admin 
         clinicEntities context = new clinicEntities();
         CRUD crud = new CRUD();
 
         public Login()
         {
             InitializeComponent();
-            
+
         }
 
         private void btLogin_Click(object sender, RoutedEventArgs e)
         {
             // take the user entry and verify with database
-           var userList = context.users;
-            foreach (user u in userList)
+            try
             {
-                if (u.UserName == tbUserName.Text && u.LoginPassWord == tbPW.Password.ToString())
+                var userList = context.users;
+                foreach (user u in userList)
                 {
-                    MessageBox.Show("user authentification done");
-                    SessionUserRole = u.UserRole;
-                    switch (SessionUserRole)
+                    if (u.UserName == tbUserName.Text && u.LoginPassWord == tbPW.Password.ToString())
                     {
-                        case "Doctor":
-                            SessionId = u.DoctorId.Value;
-                            MainWindow mainView = new MainWindow();
-                            mainView.Show();
-                            break;
-                        case "Patient":
-                            SessionId = u.PatientId.Value;
-                            break;
-                        case "Admin":
-                            SessionId =u.Id;
-                            Admin adminView = new Admin();
-                            adminView.Show();
-                            break;
-                        
+                        MessageBox.Show("user authentification done");
+                        SessionUserRole = u.UserRole;
+                        switch (SessionUserRole)
+                        {
+                            case "Doctor":
+                                SessionId = u.DoctorId.Value;
+                                MainWindow mainView = new MainWindow();
+                                mainView.Show();
+                                break;
+                            case "Patient":
+                                SessionId = u.PatientId.Value;
+                                break;
+                            case "Admin":
+                                SessionId = u.Id;
+                                Admin adminView = new Admin();
+                                adminView.Show();
+                                break;
+
+                        }
+
                     }
 
                 }
-            
+
+
+
+                if (SessionUserRole == null)
+                {
+                    MessageBox.Show("User name or password is not valid");
+                }
+
             }
-            if (SessionUserRole == null) { 
-            MessageBox.Show("User name or password is not valid");
-            } 
+            catch
+            {
+                MessageBox.Show("database error or connection time out");
+            }
         }
 
         private void btCancel_Click(object sender, RoutedEventArgs e)
         {
-           Close();
+            Close();
         }
     }
 }

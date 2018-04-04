@@ -10,6 +10,8 @@ namespace DAL
     public class CRUD
     { public clinicEntities entitiesContext = new clinicEntities();
 
+        
+
         public List<doctor> DisplayDoctorById(int id)
         {
             List<doctor> list = new List<doctor>();

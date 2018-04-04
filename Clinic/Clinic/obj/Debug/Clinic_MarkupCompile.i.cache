@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\Jay\Documents\ClinicTest\Clinic\Clinic\App.xaml
-111669603922
+12-409960993
 
-19-1008981158
+20-1954954874
 25551776155
-Admin.xaml;Login.xaml;pagesAdmin\ManageAppointments.xaml;pagesAdmin\ManageDoctors.xaml;pagesAdmin\ManagePatients.xaml;pagesAdmin\ManageTimeSlots.xaml;pages\AddAvailability.xaml;pages\DoctorDetail.xaml;MainWindow.xaml;pages\ViewPatient.xaml;pages\ViewSchedule.xaml;
+Admin.xaml;Login.xaml;pagesAdmin\DlgAddDoctor.xaml;pagesAdmin\ManageAppointments.xaml;pagesAdmin\ManageDoctors.xaml;pagesAdmin\ManagePatients.xaml;pagesAdmin\ManageTimeSlots.xaml;pages\AddAvailability.xaml;pages\DoctorDetail.xaml;MainWindow.xaml;pages\ViewPatient.xaml;pages\ViewSchedule.xaml;
 
 True
 

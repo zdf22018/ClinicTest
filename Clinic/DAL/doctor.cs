@@ -30,7 +30,18 @@ namespace DAL
         public string Email { get; set; }
         public string UserName { get; set; }
         public string LoginPassWord { get; set; }
-    
+
+        public doctor(string firstName, string lastName, string speciality, string phone, string email, string userName, string loginPassWord)
+        {
+            FirstName = firstName;
+            LastName = lastName;
+            Speciality = speciality;
+            Phone = phone;
+            Email = email;
+            UserName = userName;
+            LoginPassWord = loginPassWord;
+        }
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<availability> availabilities { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

@@ -64,12 +64,61 @@ namespace Clinic.pagesAdmin
         private void btDelete_Click(object sender, RoutedEventArgs e)
         {
             // need to check the data persistancy before delete, no availablity, no available time slots with this doctorId
-            //context.doctors.Remove(context.doctors.Find(int.Parse(lblDoctorId.Content.ToString())));
-        }
+            var a = context.availabilities;
+            var slot = context.timeslots;
+            bool canDelete = true;
+            foreach(availability av in a)
+            {
+                if (av.DoctorId == int.Parse(idLabel.Content.ToString()))
+                {
+                    canDelete =false;
+                }
+            }
+            foreach (timeslot s in slot)
+            {
+                if(s.SlotDoctorId == int.Parse(idLabel.Content.ToString()))
+                {
+                    canDelete = false;
+                }
+            }
+
+            if (canDelete)
+            {
+                MessageBoxResult messageBoxResult = MessageBox.Show(string.Format("Are you sure to delete Doctor Id:{0}?", idLabel.Content.ToString()), "Delete Confirmation", System.Windows.MessageBoxButton.YesNo);
+                if (messageBoxResult == MessageBoxResult.Yes)
+                {
+                    var userList = context.users;
+                    int idDeleted = 0;
+                    foreach (user u in userList)
+                    {
+                        if (u.DoctorId== int.Parse(idLabel.Content.ToString()))
+                        {
+                            context.users.Remove(context.users.Find(u.Id));
+                            idDeleted = u.Id;
+                        }
+                    }
+                    
+                    context.doctors.Remove(context.doctors.Find(int.Parse(idLabel.Content.ToString())));
+                    context.SaveChanges();
+                    MessageBox.Show(string.Format("you have deletd Doctor id: {0}",idDeleted.ToString()));
+                }
+            }
+            if (!canDelete)
+            {
+                MessageBox.Show("you need to first delete the related record in availability and/or timeslots"); }
+            }
 
         private void btAdd_Click(object sender, RoutedEventArgs e)
         {
-            
+            DlgAddDoctor dlgAddDoctor = new DlgAddDoctor();
+            dlgAddDoctor.Show();
+           
+        }
+
+        private void btRefresh_Click(object sender, RoutedEventArgs e)
+        {
+            context.doctors.Load();
+            doctorViewSource.Source = context.doctors.Local;
         }
     }
 }

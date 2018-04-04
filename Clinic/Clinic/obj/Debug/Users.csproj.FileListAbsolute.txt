@@ -92,3 +92,5 @@ C:\Users\Jay\Documents\ClinicTest\Clinic\Clinic\obj\Debug\Users.csproj.CoreCompi
 C:\Users\Jay\Documents\ClinicTest\Clinic\Clinic\obj\Debug\Users.csproj.CopyComplete
 C:\Users\Jay\Documents\ClinicTest\Clinic\Clinic\obj\Debug\Clinic.exe
 C:\Users\Jay\Documents\ClinicTest\Clinic\Clinic\obj\Debug\Clinic.pdb
+C:\Users\Jay\Documents\ClinicTest\Clinic\Clinic\obj\Debug\pagesAdmin\DlgAddDoctor.g.cs
+C:\Users\Jay\Documents\ClinicTest\Clinic\Clinic\obj\Debug\pagesAdmin\DlgAddDoctor.baml

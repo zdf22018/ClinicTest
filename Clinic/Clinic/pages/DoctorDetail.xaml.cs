@@ -24,6 +24,7 @@ namespace Clinic
     {
         clinicEntities context = new clinicEntities();
         CollectionViewSource doctorViewSource;
+        Login login = new Login();
 
         public DoctorDetail()
         {
@@ -37,6 +38,19 @@ namespace Clinic
         {
             context.doctors.Load();
             doctorViewSource.Source = context.doctors.Local;
+            //add a filter to load only logged doctor details
+            // doctor id obtained from log in SessionId
+            doctorViewSource.View.Filter = item =>
+            {
+                doctor m = item as doctor;
+                if (m != null)
+                {
+                    if (m.Id.Equals(5)) // here need to figure out how to get the SessionId
+                        return true;
+                }
+                return false;
+            };
+
         }
 
         private void btUpdate_Click(object sender, RoutedEventArgs e)
