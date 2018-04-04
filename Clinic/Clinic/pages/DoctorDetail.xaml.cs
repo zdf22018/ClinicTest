@@ -45,7 +45,7 @@ namespace Clinic
                 doctor m = item as doctor;
                 if (m != null)
                 {
-                    if (m.Id.Equals(5)) // here need to figure out how to get the SessionId
+                    if (m.Id.Equals(Globals.SessionId)) // here need to figure out how to get the SessionId
                         return true;
                 }
                 return false;

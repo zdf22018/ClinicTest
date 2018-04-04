@@ -4,16 +4,16 @@
 winexe
 C#
 .cs
-C:\Users\Jay\Documents\ClinicTest\Clinic\Clinic\obj\Debug\
+D:\ClinicTest\Clinic\Clinic\obj\Debug\
 Clinic
 none
 false
 DEBUG;TRACE
-C:\Users\Jay\Documents\ClinicTest\Clinic\Clinic\App.xaml
+D:\ClinicTest\Clinic\Clinic\App.xaml
 12-409960993
 
-161057830529
-25551776155
+171808000297
+25783205104
 Admin.xaml;Login.xaml;pagesAdmin\DlgAddDoctor.xaml;pagesAdmin\ManageAppointments.xaml;pagesAdmin\ManageDoctors.xaml;pagesAdmin\ManagePatients.xaml;pagesAdmin\ManageTimeSlots.xaml;pages\AddAvailability.xaml;pages\DoctorDetail.xaml;MainWindow.xaml;pages\ViewPatient.xaml;pages\ViewSchedule.xaml;
 
 False

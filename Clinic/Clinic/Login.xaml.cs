@@ -21,7 +21,7 @@ namespace Clinic
     public partial class Login : Window
     {
         string SessionUserRole;
-        public int SessionId { get; set; } // this is the Id of Doctor or Patient or Admin 
+         // this is the Id of Doctor or Patient or Admin 
         clinicEntities context = new clinicEntities();
         CRUD crud = new CRUD();
 
@@ -46,15 +46,15 @@ namespace Clinic
                         switch (SessionUserRole)
                         {
                             case "Doctor":
-                                SessionId = u.DoctorId.Value;
+                                Globals.SessionId = u.DoctorId.Value;
                                 MainWindow mainView = new MainWindow();
                                 mainView.Show();
                                 break;
                             case "Patient":
-                                SessionId = u.PatientId.Value;
+                                Globals.SessionId = u.PatientId.Value;
                                 break;
                             case "Admin":
-                                SessionId = u.Id;
+                                Globals.SessionId = u.Id;
                                 Admin adminView = new Admin();
                                 adminView.Show();
                                 break;
