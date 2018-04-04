@@ -1,0 +1,59 @@
+﻿<Page
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Clinic"
+      xmlns:DAL="clr-namespace:DAL;assembly=DAL" xmlns:dxsch="http://schemas.devexpress.com/winfx/2008/xaml/scheduling" x:Class="Clinic.ViewSchedule"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="ViewSchedule" Loaded="Page_Loaded" >
+    <Page.Resources>
+        <CollectionViewSource x:Key="doctor_scheduleViewSource" d:DesignSource="{d:DesignInstance {x:Type DAL:doctor_schedule}, CreateList=True}"/>
+    </Page.Resources>
+    <ListView x:Name="doctor_scheduleListView" ItemsSource="{Binding Source={StaticResource doctor_scheduleViewSource}}" Margin="81,53,78,131" SelectionMode="Single">
+        <ListView.ItemContainerStyle>
+            <Style>
+                <Setter Property="Control.HorizontalContentAlignment" Value="Stretch"/>
+                <Setter Property="Control.VerticalContentAlignment" Value="Stretch"/>
+            </Style>
+        </ListView.ItemContainerStyle>
+        <ListView.View>
+            <GridView>
+                
+                <GridViewColumn x:Name="patient_NameColumn" Header="Patient Name" Width="150">
+                    <GridViewColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBox Margin="-6,-1" Text="{Binding Patient_Name, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"/>
+                        </DataTemplate>
+                    </GridViewColumn.CellTemplate>
+                </GridViewColumn>
+                <GridViewColumn x:Name="patientIdColumn" Header="Patient Id" Width="70">
+                    <GridViewColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBox Margin="-6,-1" Text="{Binding PatientId, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"/>
+                        </DataTemplate>
+                    </GridViewColumn.CellTemplate>
+                </GridViewColumn>
+                <GridViewColumn x:Name="startColumn" Header="Start" Width="150">
+                    <GridViewColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBox Margin="-6,-1" Text="{Binding Start, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"/>
+                        </DataTemplate>
+                    </GridViewColumn.CellTemplate>
+                </GridViewColumn>
+                <GridViewColumn x:Name="endColumn" Header="End" Width="150">
+                    <GridViewColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBox Margin="6,-1,-6,-1" Text="{Binding End, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"/>
+                        </DataTemplate>
+                    </GridViewColumn.CellTemplate>
+                </GridViewColumn>
+            </GridView>
+        </ListView.View>
+    </ListView>
+
+
+
+
+</Page>

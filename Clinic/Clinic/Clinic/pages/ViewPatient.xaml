@@ -1,0 +1,72 @@
+﻿<Page
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Clinic.pages"
+      xmlns:DAL="clr-namespace:DAL;assembly=DAL" x:Class="Clinic.pages.ViewPatient"
+      mc:Ignorable="d"
+      Title="ViewPatient" Loaded="Page_Loaded" Width="999.286" Height="771.428" >
+
+    <Page.Resources>
+        <CollectionViewSource x:Key="patientViewSource" d:DesignSource="{d:DesignInstance {x:Type DAL:patient}, CreateList=True}"/>
+        <CollectionViewSource x:Key="patientappointmentsViewSource" Source="{Binding appointments, Source={StaticResource patientViewSource}}"/>
+    </Page.Resources>
+
+    <Grid DataContext="{StaticResource patientappointmentsViewSource}" Margin="0,0,0,10">
+
+        <Grid x:Name="grid1" VerticalAlignment="Top" Margin="32,77,0,0" HorizontalAlignment="Left" DataContext="{StaticResource patientViewSource}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Label VerticalAlignment="Center" Grid.Row="0" Margin="3" HorizontalAlignment="Left" Grid.Column="0" Content="Date Of Birth:"/>
+            <TextBox x:Name="dateOfBirthTextBox" Width="120" VerticalAlignment="Center" Text="{Binding DateOfBirth, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Grid.Row="0" Margin="3" Height="23" HorizontalAlignment="Left" Grid.Column="1"/>
+            <Label VerticalAlignment="Center" Grid.Row="1" Margin="3" HorizontalAlignment="Left" Grid.Column="0" Content="Email:"/>
+            <TextBox x:Name="emailTextBox" Width="120" VerticalAlignment="Center" Text="{Binding Email, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Grid.Row="1" Margin="3" Height="23" HorizontalAlignment="Left" Grid.Column="1"/>
+            <Label VerticalAlignment="Center" Grid.Row="2" Margin="3" HorizontalAlignment="Left" Grid.Column="0" Content="First Name:"/>
+            <TextBox x:Name="firstNameTextBox" Width="120" VerticalAlignment="Center" Text="{Binding FirstName, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Grid.Row="2" Margin="3" Height="23" HorizontalAlignment="Left" Grid.Column="1"/>
+            <Label VerticalAlignment="Center" Grid.Row="3" Margin="3" HorizontalAlignment="Left" Grid.Column="0" Content="Id:"/>
+            <Label x:Name="idLabel" VerticalAlignment="Center" Grid.Row="3" Margin="3" HorizontalAlignment="Left" Grid.Column="1" Content="{Binding Id}"/>
+            <Label VerticalAlignment="Center" Grid.Row="4" Margin="3" HorizontalAlignment="Left" Grid.Column="0" Content="Last Name:"/>
+            <TextBox x:Name="lastNameTextBox" Width="120" VerticalAlignment="Center" Text="{Binding LastName, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Grid.Row="4" Margin="3" Height="23" HorizontalAlignment="Left" Grid.Column="1"/>
+            <Label VerticalAlignment="Center" Grid.Row="5" Margin="3" HorizontalAlignment="Left" Grid.Column="0" Content="Medical Card No:"/>
+            <TextBox x:Name="medicalCardNoTextBox" Width="120" VerticalAlignment="Center" Text="{Binding MedicalCardNo, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Grid.Row="5" Margin="3" Height="23" HorizontalAlignment="Left" Grid.Column="1"/>
+            <Label VerticalAlignment="Center" Grid.Row="6" Margin="3" HorizontalAlignment="Left" Grid.Column="0" Content="Phone:"/>
+            <TextBox x:Name="phoneTextBox" Width="120" VerticalAlignment="Center" Text="{Binding Phone, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Grid.Row="6" Margin="3" Height="23" HorizontalAlignment="Left" Grid.Column="1"/>
+        </Grid>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="32,10,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="145,10,0,0" VerticalAlignment="Top" Width="75"/>
+        <Grid x:Name="grid2" HorizontalAlignment="Left" Margin="437,109,0,0" VerticalAlignment="Top" Height="160">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="54.786"/>
+                <ColumnDefinition Width="37.214"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Label Content="Is Available:" Grid.Column="0" HorizontalAlignment="Left" Margin="3,3,0,3" Grid.Row="0" VerticalAlignment="Center" Grid.ColumnSpan="2"/>
+            <CheckBox x:Name="isAvailableCheckBox" Content="" Grid.Column="2" HorizontalAlignment="Left" IsChecked="{Binding timeslot.IsAvailable, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Margin="3,8,0,8" Grid.Row="0" VerticalAlignment="Center"/>
+            <Label Content="Slot Doctor Id:" Grid.Column="0" HorizontalAlignment="Left" Margin="3,3,0,3" Grid.Row="1" VerticalAlignment="Center" Grid.ColumnSpan="2"/>
+            <TextBox x:Name="slotDoctorIdTextBox" Grid.Column="2" HorizontalAlignment="Left" Height="24" Margin="3,4,0,4" Grid.Row="1" Text="{Binding timeslot.SlotDoctorId, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+            <Label Content="Slot End:" Grid.Column="0" HorizontalAlignment="Left" Margin="3,3,0,3" Grid.Row="2" VerticalAlignment="Center" Grid.ColumnSpan="2"/>
+            <TextBox x:Name="slotEndTextBox" Grid.Column="2" HorizontalAlignment="Left" Height="24" Margin="3,4,0,4" Grid.Row="2" Text="{Binding timeslot.SlotEnd, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+            <Label Content="Slot Start:" Grid.Column="0" HorizontalAlignment="Left" Margin="3,3,0,3" Grid.Row="3" VerticalAlignment="Center" Grid.ColumnSpan="2"/>
+            <TextBox x:Name="slotStartTextBox" Grid.Column="2" HorizontalAlignment="Left" Height="24" Margin="3,4,0,4" Grid.Row="3" Text="{Binding timeslot.SlotStart, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+        </Grid>
+
+    </Grid>
+</Page>

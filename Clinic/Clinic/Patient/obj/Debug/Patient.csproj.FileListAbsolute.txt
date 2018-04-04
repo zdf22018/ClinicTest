@@ -1,0 +1,15 @@
+C:\Users\Jay\Documents\ClinicTest\Clinic\Patient\bin\Debug\Patient.exe.config
+C:\Users\Jay\Documents\ClinicTest\Clinic\Patient\bin\Debug\Patient.exe
+C:\Users\Jay\Documents\ClinicTest\Clinic\Patient\bin\Debug\Patient.pdb
+C:\Users\Jay\Documents\ClinicTest\Clinic\Patient\obj\Debug\Patient.csprojResolveAssemblyReference.cache
+C:\Users\Jay\Documents\ClinicTest\Clinic\Patient\obj\Debug\MainWindow.g.cs
+C:\Users\Jay\Documents\ClinicTest\Clinic\Patient\obj\Debug\App.g.cs
+C:\Users\Jay\Documents\ClinicTest\Clinic\Patient\obj\Debug\Patient_MarkupCompile.cache
+C:\Users\Jay\Documents\ClinicTest\Clinic\Patient\obj\Debug\Patient_MarkupCompile.lref
+C:\Users\Jay\Documents\ClinicTest\Clinic\Patient\obj\Debug\MainWindow.baml
+C:\Users\Jay\Documents\ClinicTest\Clinic\Patient\obj\Debug\Patient.g.resources
+C:\Users\Jay\Documents\ClinicTest\Clinic\Patient\obj\Debug\Patient.Properties.Resources.resources
+C:\Users\Jay\Documents\ClinicTest\Clinic\Patient\obj\Debug\Patient.csproj.GenerateResource.cache
+C:\Users\Jay\Documents\ClinicTest\Clinic\Patient\obj\Debug\Patient.csproj.CoreCompileInputs.cache
+C:\Users\Jay\Documents\ClinicTest\Clinic\Patient\obj\Debug\Patient.exe
+C:\Users\Jay\Documents\ClinicTest\Clinic\Patient\obj\Debug\Patient.pdb

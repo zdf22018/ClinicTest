@@ -1,0 +1,15 @@
+C:\Users\Jay\Documents\ClinicTest\Clinic\Admin\obj\Debug\Admin.csprojResolveAssemblyReference.cache
+C:\Users\Jay\Documents\ClinicTest\Clinic\Admin\obj\Debug\MainWindow.g.cs
+C:\Users\Jay\Documents\ClinicTest\Clinic\Admin\obj\Debug\App.g.cs
+C:\Users\Jay\Documents\ClinicTest\Clinic\Admin\obj\Debug\Admin_MarkupCompile.cache
+C:\Users\Jay\Documents\ClinicTest\Clinic\Admin\obj\Debug\Admin_MarkupCompile.lref
+C:\Users\Jay\Documents\ClinicTest\Clinic\Admin\bin\Debug\Admin.exe.config
+C:\Users\Jay\Documents\ClinicTest\Clinic\Admin\bin\Debug\Admin.exe
+C:\Users\Jay\Documents\ClinicTest\Clinic\Admin\bin\Debug\Admin.pdb
+C:\Users\Jay\Documents\ClinicTest\Clinic\Admin\obj\Debug\MainWindow.baml
+C:\Users\Jay\Documents\ClinicTest\Clinic\Admin\obj\Debug\Admin.g.resources
+C:\Users\Jay\Documents\ClinicTest\Clinic\Admin\obj\Debug\Admin.Properties.Resources.resources
+C:\Users\Jay\Documents\ClinicTest\Clinic\Admin\obj\Debug\Admin.csproj.GenerateResource.cache
+C:\Users\Jay\Documents\ClinicTest\Clinic\Admin\obj\Debug\Admin.csproj.CoreCompileInputs.cache
+C:\Users\Jay\Documents\ClinicTest\Clinic\Admin\obj\Debug\Admin.exe
+C:\Users\Jay\Documents\ClinicTest\Clinic\Admin\obj\Debug\Admin.pdb
