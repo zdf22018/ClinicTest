@@ -1,0 +1,154 @@
+using DAL;
+using System;
+using System.Collections.Generic;
+using System.Data.Entity;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
+using System.Windows.Shapes;
+
+namespace Clinic
+{
+    /// <summary>
+    /// Interaction logic for AddAvailability.xaml
+    /// </summary>
+    public partial class AddAvailability : Page
+    {
+        clinicEntities context = new clinicEntities();
+        CollectionViewSource availabilityViewSource;
+      
+
+        public AddAvailability()
+        {
+            InitializeComponent();
+            availabilityViewSource = ((CollectionViewSource)(FindResource("availabilityViewSource")));
+            DataContext = this;
+
+        }
+
+
+
+        private void btAdd_Click(object sender, RoutedEventArgs e)
+        {
+            int doctorId = Globals.SessionId;
+            DateTime? date = null;
+            TimeSpan? startTime = null;
+            TimeSpan? endTime= null;
+            if (dpDateAddAv.Text != null) { date = Convert.ToDateTime(dpDateAddAv.Text); }
+            if (cmbStartTime.Text != null) { startTime =TimeSpan.Parse(cmbStartTime.Text); }
+            if (cmbEndTime.Text != null) { endTime = TimeSpan.Parse(cmbEndTime.Text); }
+            int duration = 0;
+            if (rb30M.IsChecked == true) { duration = 30; }
+            else { duration = 60; }
+
+            DateTime? sTime = date + startTime;
+            DateTime? eTime = date + endTime;
+
+            //check the startTime if it is overlapping with existing availabilities. the startTime should be any
+            //anyway later than the last endTime
+            bool CanAddAvailability = true;
+            var list = context.availabilities.Where(a => a.DoctorId == Globals.SessionId);
+            foreach (availability a in list)
+            {
+                if (sTime > a.AvailableFrom && sTime <a.AvailableTo) { CanAddAvailability = false; }
+                
+            }
+            if (CanAddAvailability)
+            {
+                availability av = new availability(doctorId, date, sTime, eTime, duration);
+                context.availabilities.Add(av);
+                context.SaveChanges();
+                MessageBox.Show("Added ", av.ToString());
+                dpDateAddAv.Text = "";
+                cmbStartTime.SelectedIndex = -1;
+                cmbEndTime.SelectedIndex = -1;
+            }
+            if (!CanAddAvailability)
+            {
+                MessageBox.Show("Please check the entry, it is overlapping with existing availability");
+            }
+        }
+
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            context.availabilities.Load();
+            availabilityViewSource.Source = context.availabilities.Local;
+            //add a filter to load only logged doctor availabilities
+            // doctor id obtained from log in SessionId
+            availabilityViewSource.View.Filter = item =>
+            {
+                availability m = item as availability;
+                if (m != null)
+                {
+                    if (m.DoctorId.Equals(Globals.SessionId))
+                        return true;
+                }
+                return false;
+            };
+        }
+    }
+}
+
+
+using DAL;
+using System;
+using System.Collections.Generic;
+using System.Data.Entity;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
+using System.Windows.Shapes;
+
+namespace Clinic.pages
+{
+    /// <summary>
+    /// Interaction logic for ViewPatient.xaml
+    /// </summary>
+    public partial class ViewPatient : Page
+    {
+        clinicEntities context = new clinicEntities();
+        CollectionViewSource patientViewSource;
+
+        public ViewPatient()
+        {
+            InitializeComponent();
+            patientViewSource = ((CollectionViewSource)(FindResource("patientViewSource")));
+            DataContext = this;
+        }
+
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            context.patients.Load();
+            patientViewSource.Source = context.patients.Local;
+        }
+
+        private void btPrevious_Click(object sender, RoutedEventArgs e)
+        {
+            if (patientViewSource.View.CurrentPosition > 0)
+                patientViewSource.View.MoveCurrentToPrevious();
+        }
+
+        private void btNext_Click(object sender, RoutedEventArgs e)
+        {
+            if (patientViewSource.View.CurrentPosition < ((CollectionView)patientViewSource.View).Count - 1)
+                patientViewSource.View.MoveCurrentToNext();
+        }
+    }
+}
+
