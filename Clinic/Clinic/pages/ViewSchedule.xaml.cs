@@ -15,7 +15,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Clinic
+namespace Clinic.pages
 {
     /// <summary>
     /// Interaction logic for ViewSchedule.xaml
@@ -24,19 +24,27 @@ namespace Clinic
     {
         clinicEntities context = new clinicEntities();
         CollectionViewSource doctor_scheduleViewSource;
-
         public ViewSchedule()
         {
             InitializeComponent();
             doctor_scheduleViewSource = ((CollectionViewSource)(FindResource("doctor_scheduleViewSource")));
             DataContext = this;
         }
+
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
             context.doctor_schedule.Load();
             doctor_scheduleViewSource.Source = context.doctor_schedule.Local;
+            doctor_scheduleViewSource.View.Filter = item =>
+            {
+                doctor_schedule m = item as doctor_schedule;
+                if (m != null)
+                {
+                    if (m.DoctorId.Equals(Globals.SessionId))
+                        return true;
+                }
+                return false;
+            };
         }
-
-        
     }
 }

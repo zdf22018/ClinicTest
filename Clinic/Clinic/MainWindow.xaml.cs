@@ -49,7 +49,7 @@ namespace Clinic
 
         private void btLogout_Click(object sender, RoutedEventArgs e)
         {
-
+            Close();
         }
 
        

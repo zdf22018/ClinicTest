@@ -46,25 +46,24 @@
         </Grid>
         <Button x:Name ="btPrevious" Content="Previous" HorizontalAlignment="Left" Margin="32,10,0,0" VerticalAlignment="Top" Width="75" Click="btPrevious_Click"/>
         <Button x:Name="btNext" Content="Next" HorizontalAlignment="Left" Margin="145,10,0,0" VerticalAlignment="Top" Width="75" Click="btNext_Click"/>
-        <Grid x:Name="grid2" HorizontalAlignment="Left" Margin="437,109,0,0" VerticalAlignment="Top" Height="160">
+        <Grid x:Name="grid2" HorizontalAlignment="Left" Margin="383,109,0,0" VerticalAlignment="Top" Height="160" Width="296">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="54.786"/>
-                <ColumnDefinition Width="37.214"/>
-                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="105"/>
+                <ColumnDefinition Width="13"/>
+                <ColumnDefinition Width="Auto" MinWidth="124"/>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto" MinHeight="69"/>
+                <RowDefinition Height="Auto" MinHeight="32"/>
             </Grid.RowDefinitions>
-            <Label Content="Is Available:" Grid.Column="0" HorizontalAlignment="Left" Margin="3,3,0,3" Grid.Row="0" VerticalAlignment="Center" Grid.ColumnSpan="2"/>
-            <CheckBox x:Name="isAvailableCheckBox" Content="" Grid.Column="2" HorizontalAlignment="Left" IsChecked="{Binding timeslot.IsAvailable, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Margin="3,8,0,8" Grid.Row="0" VerticalAlignment="Center"/>
-            <Label Content="Slot Doctor Id:" Grid.Column="0" HorizontalAlignment="Left" Margin="3,3,0,3" Grid.Row="1" VerticalAlignment="Center" Grid.ColumnSpan="2"/>
-            <TextBox x:Name="slotDoctorIdTextBox" Grid.Column="2" HorizontalAlignment="Left" Height="24" Margin="3,4,0,4" Grid.Row="1" Text="{Binding timeslot.SlotDoctorId, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
-            <Label Content="Slot End:" Grid.Column="0" HorizontalAlignment="Left" Margin="3,3,0,3" Grid.Row="2" VerticalAlignment="Center" Grid.ColumnSpan="2"/>
-            <TextBox x:Name="slotEndTextBox" Grid.Column="2" HorizontalAlignment="Left" Height="24" Margin="3,4,0,4" Grid.Row="2" Text="{Binding timeslot.SlotEnd, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
-            <Label Content="Slot Start:" Grid.Column="0" HorizontalAlignment="Left" Margin="3,3,0,3" Grid.Row="3" VerticalAlignment="Center" Grid.ColumnSpan="2"/>
+
+            <Label Content="Doctor Id:" Grid.Column="0" HorizontalAlignment="Left" Margin="3,19,0,18" Grid.Row="1" VerticalAlignment="Center" Height="22" Width="52"/>
+            <TextBox x:Name="slotDoctorIdTextBox" Grid.Column="2" HorizontalAlignment="Left" Height="24" Margin="3,17,0,18" Grid.Row="1" Text="{Binding timeslot.SlotDoctorId, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+            <Label Content="Appointment Start:" Grid.Column="0" HorizontalAlignment="Left" Margin="3,24,0,23" Grid.Row="2" VerticalAlignment="Center" Height="22" Width="89"/>
+            <TextBox x:Name="slotEndTextBox" Grid.Column="2" HorizontalAlignment="Left" Height="24" Margin="3,22,0,23" Grid.Row="2" Text="{Binding timeslot.SlotEnd, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+            <Label Content="Appointment End:" Grid.Column="0" HorizontalAlignment="Left" Margin="3,5,0,5" Grid.Row="3" VerticalAlignment="Center" Height="22" Width="89"/>
             <TextBox x:Name="slotStartTextBox" Grid.Column="2" HorizontalAlignment="Left" Height="24" Margin="3,4,0,4" Grid.Row="3" Text="{Binding timeslot.SlotStart, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
         </Grid>
 

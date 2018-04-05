@@ -97,9 +97,6 @@
     <Compile Include="pages\ViewPatient.xaml.cs">
       <DependentUpon>ViewPatient.xaml</DependentUpon>
     </Compile>
-    <Compile Include="pages\ViewSchedule.xaml.cs">
-      <DependentUpon>ViewSchedule.xaml</DependentUpon>
-    </Compile>
     <Page Include="Admin.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -161,6 +158,9 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="pages\ViewSchedule.xaml.cs">
+      <DependentUpon>ViewSchedule.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
