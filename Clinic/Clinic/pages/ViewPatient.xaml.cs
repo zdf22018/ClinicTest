@@ -38,6 +38,17 @@ namespace Clinic.pages
             patientViewSource.Source = context.patients.Local;
         }
 
-       
+        private void btPrevious_Click(object sender, RoutedEventArgs e)
+        {
+
+            if (patientViewSource.View.CurrentPosition > 0)
+                patientViewSource.View.MoveCurrentToPrevious();
+        }
+
+        private void btNext_Click(object sender, RoutedEventArgs e)
+        {
+            if (patientViewSource.View.CurrentPosition < ((CollectionView)patientViewSource.View).Count - 1)
+                patientViewSource.View.MoveCurrentToNext();
+        }
     }
 }

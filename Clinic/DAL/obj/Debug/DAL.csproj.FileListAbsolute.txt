@@ -20,3 +20,13 @@ D:\ClinicTest\Clinic\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
 D:\ClinicTest\Clinic\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
 D:\ClinicTest\Clinic\DAL\obj\Debug\DAL.dll
 D:\ClinicTest\Clinic\DAL\obj\Debug\DAL.pdb
+C:\Users\ITC\Documents\ClinicTest\Clinic\DAL\bin\Debug\DAL.dll.config
+C:\Users\ITC\Documents\ClinicTest\Clinic\DAL\bin\Debug\DAL.dll
+C:\Users\ITC\Documents\ClinicTest\Clinic\DAL\bin\Debug\DAL.pdb
+C:\Users\ITC\Documents\ClinicTest\Clinic\DAL\bin\Debug\EntityFramework.dll
+C:\Users\ITC\Documents\ClinicTest\Clinic\DAL\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\ITC\Documents\ClinicTest\Clinic\DAL\bin\Debug\EntityFramework.xml
+C:\Users\ITC\Documents\ClinicTest\Clinic\DAL\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\ITC\Documents\ClinicTest\Clinic\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
+C:\Users\ITC\Documents\ClinicTest\Clinic\DAL\obj\Debug\DAL.dll
+C:\Users\ITC\Documents\ClinicTest\Clinic\DAL\obj\Debug\DAL.pdb
