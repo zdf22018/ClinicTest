@@ -12,13 +12,14 @@ namespace DAL
     using System;
     using System.Collections.Generic;
     
-    public partial class database_firewall_rules
+    public partial class display_appointements_for_Patient
     {
-        public int id { get; set; }
-        public string name { get; set; }
-        public string start_ip_address { get; set; }
-        public string end_ip_address { get; set; }
-        public System.DateTime create_date { get; set; }
-        public System.DateTime modify_date { get; set; }
+        public int TimeSlotId { get; set; }
+        public int PatientId { get; set; }
+        public Nullable<System.DateTime> Start { get; set; }
+        public Nullable<System.DateTime> End { get; set; }
+        public Nullable<int> DoctorId { get; set; }
+        public string Doctor { get; set; }
+        public Nullable<bool> Is_Available { get; set; }
     }
 }

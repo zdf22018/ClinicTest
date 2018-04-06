@@ -48,16 +48,6 @@
     <Property Name="UserName" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="LoginPassWord" Type="varchar" MaxLength="50" Nullable="false" />
   </EntityType>
-  <EntityType Name="sysdiagrams">
-    <Key>
-      <PropertyRef Name="diagram_id" />
-    </Key>
-    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
-    <Property Name="principal_id" Type="int" Nullable="false" />
-    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="version" Type="int" />
-    <Property Name="definition" Type="varbinary(max)" />
-  </EntityType>
   <EntityType Name="timeslots">
     <Key>
       <PropertyRef Name="Id" />
@@ -81,6 +71,34 @@
     <Property Name="PatientId" Type="int" />
   </EntityType>
   <!--Errors Found During Generation:
+warning 6002: The table/view 'clinic.dbo.display_appointements_for_Patient' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="display_appointements_for_Patient">
+    <Key>
+      <PropertyRef Name="TimeSlotId" />
+      <PropertyRef Name="PatientId" />
+      <PropertyRef Name="Doctor" />
+    </Key>
+    <Property Name="TimeSlotId" Type="int" Nullable="false" />
+    <Property Name="PatientId" Type="int" Nullable="false" />
+    <Property Name="Start" Type="datetime" />
+    <Property Name="End" Type="datetime" />
+    <Property Name="DoctorId" Type="int" />
+    <Property Name="Doctor" Type="varchar" MaxLength="101" Nullable="false" />
+    <Property Name="Is Available" Type="bit" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'clinic.dbo.display_available_slots' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="display_available_slots">
+    <Key>
+      <PropertyRef Name="TimeSoltId" />
+      <PropertyRef Name="Doctor" />
+    </Key>
+    <Property Name="TimeSoltId" Type="int" Nullable="false" />
+    <Property Name="Doctor" Type="varchar" MaxLength="101" Nullable="false" />
+    <Property Name="Start" Type="datetime" />
+    <Property Name="End" Type="datetime" />
+  </EntityType>
+  <!--Errors Found During Generation:
 warning 6002: The table/view 'clinic.dbo.doctor_schedule' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="doctor_schedule">
     <Key>
@@ -94,24 +112,6 @@ warning 6002: The table/view 'clinic.dbo.doctor_schedule' does not have a primar
     <Property Name="DoctorName" Type="varchar" MaxLength="101" Nullable="false" />
     <Property Name="SlotStart" Type="datetime" />
     <Property Name="SlotEnd" Type="datetime" />
-  </EntityType>
-  <!--Errors Found During Generation:
-warning 6002: The table/view 'clinic.sys.database_firewall_rules' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
-  <EntityType Name="database_firewall_rules">
-    <Key>
-      <PropertyRef Name="id" />
-      <PropertyRef Name="name" />
-      <PropertyRef Name="start_ip_address" />
-      <PropertyRef Name="end_ip_address" />
-      <PropertyRef Name="create_date" />
-      <PropertyRef Name="modify_date" />
-    </Key>
-    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
-    <Property Name="start_ip_address" Type="varchar" MaxLength="45" Nullable="false" />
-    <Property Name="end_ip_address" Type="varchar" MaxLength="45" Nullable="false" />
-    <Property Name="create_date" Type="datetime" Nullable="false" />
-    <Property Name="modify_date" Type="datetime" Nullable="false" />
   </EntityType>
   <Association Name="FK__appointme__Patie__5AB9788F">
     <End Role="patients" Type="Self.patients" Multiplicity="1" />
@@ -190,9 +190,27 @@ warning 6002: The table/view 'clinic.sys.database_firewall_rules' does not have 
     <EntitySet Name="availability" EntityType="Self.availability" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="doctors" EntityType="Self.doctors" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="patients" EntityType="Self.patients" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="timeslots" EntityType="Self.timeslots" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="users" EntityType="Self.users" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="display_appointements_for_Patient" EntityType="Self.display_appointements_for_Patient" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [display_appointements_for_Patient].[TimeSlotId] AS [TimeSlotId], 
+    [display_appointements_for_Patient].[PatientId] AS [PatientId], 
+    [display_appointements_for_Patient].[Start] AS [Start], 
+    [display_appointements_for_Patient].[End] AS [End], 
+    [display_appointements_for_Patient].[DoctorId] AS [DoctorId], 
+    [display_appointements_for_Patient].[Doctor] AS [Doctor], 
+    [display_appointements_for_Patient].[Is Available] AS [Is Available]
+    FROM [dbo].[display_appointements_for_Patient] AS [display_appointements_for_Patient]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="display_available_slots" EntityType="Self.display_available_slots" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [display_available_slots].[TimeSoltId] AS [TimeSoltId], 
+    [display_available_slots].[Doctor] AS [Doctor], 
+    [display_available_slots].[Start] AS [Start], 
+    [display_available_slots].[End] AS [End]
+    FROM [dbo].[display_available_slots] AS [display_available_slots]</DefiningQuery>
+    </EntitySet>
     <EntitySet Name="doctor_schedule" EntityType="Self.doctor_schedule" store:Type="Views" store:Schema="dbo">
       <DefiningQuery>SELECT 
     [doctor_schedule].[PatientId] AS [PatientId], 
@@ -202,16 +220,6 @@ warning 6002: The table/view 'clinic.sys.database_firewall_rules' does not have 
     [doctor_schedule].[SlotStart] AS [SlotStart], 
     [doctor_schedule].[SlotEnd] AS [SlotEnd]
     FROM [dbo].[doctor_schedule] AS [doctor_schedule]</DefiningQuery>
-    </EntitySet>
-    <EntitySet Name="database_firewall_rules" EntityType="Self.database_firewall_rules" store:Type="Views" store:Schema="sys">
-      <DefiningQuery>SELECT 
-    [database_firewall_rules].[id] AS [id], 
-    [database_firewall_rules].[name] AS [name], 
-    [database_firewall_rules].[start_ip_address] AS [start_ip_address], 
-    [database_firewall_rules].[end_ip_address] AS [end_ip_address], 
-    [database_firewall_rules].[create_date] AS [create_date], 
-    [database_firewall_rules].[modify_date] AS [modify_date]
-    FROM [sys].[database_firewall_rules] AS [database_firewall_rules]</DefiningQuery>
     </EntitySet>
     <AssociationSet Name="FK__appointme__Patie__5AB9788F" Association="Self.FK__appointme__Patie__5AB9788F">
       <End Role="patients" EntitySet="patients" />

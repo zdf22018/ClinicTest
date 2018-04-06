@@ -17,7 +17,13 @@ namespace DAL
         public int Id { get; set; }
         public int TimeSlotId { get; set; }
         public int PatientId { get; set; }
-    
+
+        public appointment(int timeSlotId, int patientId)
+        {
+            TimeSlotId = timeSlotId;
+            PatientId = patientId;
+        }
+
         public virtual patient patient { get; set; }
         public virtual timeslot timeslot { get; set; }
     }

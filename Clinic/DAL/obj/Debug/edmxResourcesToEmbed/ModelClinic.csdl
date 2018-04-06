@@ -56,16 +56,6 @@
     <NavigationProperty Name="appointments" Relationship="Self.FK__appointme__Patie__1F98B2C1" FromRole="patients" ToRole="appointments" />
     <NavigationProperty Name="users" Relationship="Self.FK__users__PatientId__46B27FE2" FromRole="patients" ToRole="users" />
   </EntityType>
-  <EntityType Name="sysdiagram">
-    <Key>
-      <PropertyRef Name="diagram_id" />
-    </Key>
-    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="principal_id" Type="Int32" Nullable="false" />
-    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="version" Type="Int32" />
-    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
-  </EntityType>
   <EntityType Name="timeslot">
     <Key>
       <PropertyRef Name="Id" />
@@ -169,7 +159,6 @@
     <EntitySet Name="availabilities" EntityType="Self.availability" />
     <EntitySet Name="doctors" EntityType="Self.doctor" />
     <EntitySet Name="patients" EntityType="Self.patient" />
-    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
     <EntitySet Name="timeslots" EntityType="Self.timeslot" />
     <EntitySet Name="users" EntityType="Self.user" />
     <AssociationSet Name="FK__appointme__Patie__1F98B2C1" Association="Self.FK__appointme__Patie__1F98B2C1">
@@ -196,25 +185,10 @@
       <End Role="patients" EntitySet="patients" />
       <End Role="users" EntitySet="users" />
     </AssociationSet>
-    <EntitySet Name="database_firewall_rules" EntityType="clinicModel.database_firewall_rules" />
     <EntitySet Name="doctor_schedule" EntityType="clinicModel.doctor_schedule" />
+    <EntitySet Name="display_appointements_for_Patient" EntityType="clinicModel.display_appointements_for_Patient" />
+    <EntitySet Name="display_available_slots" EntityType="clinicModel.display_available_slots" />
   </EntityContainer>
-  <EntityType Name="database_firewall_rules">
-    <Key>
-      <PropertyRef Name="id" />
-      <PropertyRef Name="name" />
-      <PropertyRef Name="start_ip_address" />
-      <PropertyRef Name="end_ip_address" />
-      <PropertyRef Name="create_date" />
-      <PropertyRef Name="modify_date" />
-    </Key>
-    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
-    <Property Name="start_ip_address" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
-    <Property Name="end_ip_address" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
-    <Property Name="create_date" Type="DateTime" Nullable="false" Precision="3" />
-    <Property Name="modify_date" Type="DateTime" Nullable="false" Precision="3" />
-  </EntityType>
   <EntityType Name="doctor_schedule">
     <Key>
       <PropertyRef Name="PatientId" />
@@ -227,5 +201,29 @@
     <Property Name="DoctorName" Type="String" Nullable="false" MaxLength="101" FixedLength="false" Unicode="false" />
     <Property Name="SlotStart" Type="DateTime" Precision="3" />
     <Property Name="SlotEnd" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="display_appointements_for_Patient">
+    <Key>
+      <PropertyRef Name="TimeSlotId" />
+      <PropertyRef Name="PatientId" />
+      <PropertyRef Name="Doctor" />
+    </Key>
+    <Property Name="TimeSlotId" Type="Int32" Nullable="false" />
+    <Property Name="PatientId" Type="Int32" Nullable="false" />
+    <Property Name="Start" Type="DateTime" Precision="3" />
+    <Property Name="End" Type="DateTime" Precision="3" />
+    <Property Name="DoctorId" Type="Int32" />
+    <Property Name="Doctor" Type="String" Nullable="false" MaxLength="101" FixedLength="false" Unicode="false" />
+    <Property Name="Is_Available" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="display_available_slots">
+    <Key>
+      <PropertyRef Name="TimeSoltId" />
+      <PropertyRef Name="Doctor" />
+    </Key>
+    <Property Name="TimeSoltId" Type="Int32" Nullable="false" />
+    <Property Name="Doctor" Type="String" Nullable="false" MaxLength="101" FixedLength="false" Unicode="false" />
+    <Property Name="Start" Type="DateTime" Precision="3" />
+    <Property Name="End" Type="DateTime" Precision="3" />
   </EntityType>
 </Schema>

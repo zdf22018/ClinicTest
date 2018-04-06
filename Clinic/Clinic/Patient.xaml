@@ -1,0 +1,16 @@
+﻿<Window x:Class="Clinic.Patient"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Clinic"
+        mc:Ignorable="d"
+        Title="Patient" Height="450" Width="800">
+    <Grid>
+        <Button x:Name="btMyDetail" Content="My Detail" HorizontalAlignment="Left" Margin="10,38,0,0" VerticalAlignment="Top" Width="98" Height="27" Click="btMyDetail_Click"/>
+        <Button x:Name="btTakeAppointment" Content="Take Appointment" HorizontalAlignment="Left" Margin="184,43,0,0" VerticalAlignment="Top" Width="93" Click="btTakeAppointment_Click"/>
+        <Button x:Name="btViewMyAppointments" Content="View My Appointments" HorizontalAlignment="Left" Margin="348,43,0,0" VerticalAlignment="Top" Width="91" Click="btViewMyAppointments_Click"/>
+        <Button x:Name="btLogout" Content="Log out" HorizontalAlignment="Left" Margin="511,43,0,0" VerticalAlignment="Top" Width="91" Click="btLogout_Click"/>
+        <Frame x:Name="FramePatient" Margin="5,80,0,0" ></Frame>
+    </Grid>
+</Window>

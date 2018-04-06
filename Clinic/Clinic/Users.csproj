@@ -91,6 +91,15 @@
     <Compile Include="pagesAdmin\ManageTimeSlots.xaml.cs">
       <DependentUpon>ManageTimeSlots.xaml</DependentUpon>
     </Compile>
+    <Compile Include="pagesPatient\PatientDetail.xaml.cs">
+      <DependentUpon>PatientDetail.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="pagesPatient\PatientTakeAppointment.xaml.cs">
+      <DependentUpon>PatientTakeAppointment.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="pagesPatient\PatientViewAppointments.xaml.cs">
+      <DependentUpon>PatientViewAppointments.xaml</DependentUpon>
+    </Compile>
     <Compile Include="pages\AddAvailability.xaml.cs">
       <DependentUpon>AddAvailability.xaml</DependentUpon>
     </Compile>
@@ -125,6 +134,18 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="pagesPatient\PatientDetail.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="pagesPatient\PatientTakeAppointment.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="pagesPatient\PatientViewAppointments.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="pages\AddAvailability.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -156,10 +177,17 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Patient.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="pages\ViewSchedule.xaml.cs">
       <DependentUpon>ViewSchedule.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Patient.xaml.cs">
+      <DependentUpon>Patient.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
@@ -180,9 +208,13 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\DAL.display_appointements_for_Patient.datasource" />
+    <None Include="Properties\DataSources\DAL.display_available_slots.datasource" />
     <None Include="Properties\DataSources\DAL.doctor.datasource" />
     <None Include="Properties\DataSources\DAL.doctor_schedule.datasource" />
     <None Include="Properties\DataSources\DAL.patient.datasource" />
+    <None Include="Properties\DataSources\DAL.take_Appointment.datasource" />
+    <None Include="Properties\DataSources\DAL.timeslot.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

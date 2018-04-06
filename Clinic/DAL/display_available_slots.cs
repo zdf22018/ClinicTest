@@ -12,12 +12,11 @@ namespace DAL
     using System;
     using System.Collections.Generic;
     
-    public partial class sysdiagram
+    public partial class display_available_slots
     {
-        public string name { get; set; }
-        public int principal_id { get; set; }
-        public int diagram_id { get; set; }
-        public Nullable<int> version { get; set; }
-        public byte[] definition { get; set; }
+        public int TimeSoltId { get; set; }
+        public string Doctor { get; set; }
+        public Nullable<System.DateTime> Start { get; set; }
+        public Nullable<System.DateTime> End { get; set; }
     }
 }

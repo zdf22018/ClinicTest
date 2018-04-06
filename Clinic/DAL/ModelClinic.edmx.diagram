@@ -9,7 +9,6 @@
         <EntityTypeShape EntityType="clinicModel.availability" Width="1.5" PointX="3" PointY="4.75" IsExpanded="true" />
         <EntityTypeShape EntityType="clinicModel.doctor" Width="1.5" PointX="0.75" PointY="4.5" IsExpanded="true" />
         <EntityTypeShape EntityType="clinicModel.patient" Width="1.5" PointX="0.75" PointY="9.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="clinicModel.sysdiagram" Width="1.5" PointX="2.75" PointY="8.75" IsExpanded="true" />
         <EntityTypeShape EntityType="clinicModel.timeslot" Width="1.5" PointX="5.25" PointY="4.75" IsExpanded="true" />
         <EntityTypeShape EntityType="clinicModel.user" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
         <AssociationConnector Association="clinicModel.FK__appointme__Patie__1F98B2C1" ManuallyRouted="false" />
@@ -18,8 +17,9 @@
         <AssociationConnector Association="clinicModel.FK__timeslots__Avail__0C85DE4D" ManuallyRouted="false" />
         <AssociationConnector Association="clinicModel.FK__users__DoctorId__45BE5BA9" ManuallyRouted="false" />
         <AssociationConnector Association="clinicModel.FK__users__PatientId__46B27FE2" ManuallyRouted="false" />
-        <EntityTypeShape EntityType="clinicModel.database_firewall_rules" Width="1.5" PointX="7.375" PointY="0.75" />
         <EntityTypeShape EntityType="clinicModel.doctor_schedule" Width="1.5" PointX="7.375" PointY="7.75" />
+        <EntityTypeShape EntityType="clinicModel.display_appointements_for_Patient" Width="1.5" PointX="5.375" PointY="0.75" />
+        <EntityTypeShape EntityType="clinicModel.display_available_slots" Width="1.5" PointX="7.375" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

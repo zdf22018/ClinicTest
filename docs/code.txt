@@ -152,3 +152,265 @@ namespace Clinic.pages
     }
 }
 
+
+
+            DateTime date = DateTime.Now.Date;
+            DateTime startTime = DateTime.Now.Date;
+            DateTime endTime= DateTime.Now.Date;
+
+            if (dpDateAddAv.Text != null) { date = Convert.ToDateTime(dpDateAddAv.Text); }
+            if (cmbStartTime.Text != null) { startTime = Convert.ToDateTime(cmbStartTime.Text); }
+            if (cmbEndTime.Text != null) { endTime = Convert.ToDateTime(cmbEndTime.Text); }
+            int duration = 0;
+            if (rb30M.IsChecked == true) { duration = 30; }
+            else { duration = 60; }
+
+            availability av = new availability(Globals.SessionId, date, startTime, endTime, duration);
+            crud.AddAvailableTime(av);
+            MessageBox.Show("Added ", av.ToString());
+            dpDateAddAv.Text = "";
+            cmbStartTime.SelectedIndex = -1;
+            cmbEndTime.SelectedIndex = -1;
+
+
+
+using DAL;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
+using System.Windows.Shapes;
+using System.Data.Entity;
+
+namespace Clinic
+{
+    /// <summary>
+    /// Interaction logic for DoctorDetail.xaml
+    /// </summary>
+    public partial class DoctorDetail : Page
+    {
+        clinicEntities context = new clinicEntities();
+        CollectionViewSource doctorViewSource;
+        Login login = new Login();
+
+        public DoctorDetail()
+        {
+            InitializeComponent();
+            doctorViewSource = ((CollectionViewSource)(FindResource("doctorViewSource")));
+            DataContext = this;
+        
+        }
+        
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            context.doctors.Load();
+            doctorViewSource.Source = context.doctors.Local;
+            //add a filter to load only logged doctor details
+            // doctor id obtained from log in SessionId
+            doctorViewSource.View.Filter = item =>
+            {
+                doctor m = item as doctor;
+                if (m != null)
+                {
+                    if (m.Id.Equals(Globals.SessionId)) // here need to figure out how to get the SessionId
+                        return true;
+                }
+                return false;
+            };
+
+        }
+
+        private void btUpdate_Click(object sender, RoutedEventArgs e)
+        {
+            var d = context.doctors.Find(int.Parse(idLabel.Content.ToString()));
+            
+            d.FirstName = firstNameTextBox.Text;
+            d.LastName = lastNameTextBox.Text;
+            d.Speciality = specialityTextBox.Text;
+            d.Phone = phoneTextBox.Text;
+            d.Email = emailTextBox.Text;
+            d.UserName = userNameTextBox.Text;
+            d.LoginPassWord= loginPassWordTextBox.Text;
+            context.SaveChanges();
+            MessageBox.Show("update successful");
+            
+        }
+}
+}
+
+using DAL;
+using System;
+using System.Collections.Generic;
+using System.Data.Entity;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
+using System.Windows.Shapes;
+
+namespace Clinic.pagesAdmin
+{
+    /// <summary>
+    /// Interaction logic for ManageAppointments.xaml
+    /// </summary>
+    public partial class ManageAppointments : Page
+    {
+        clinicEntities context = new clinicEntities();
+        CollectionViewSource doctor_scheduleViewSource;
+
+        public ManageAppointments()
+        {
+            InitializeComponent();
+            doctor_scheduleViewSource = ((CollectionViewSource)(FindResource("doctor_scheduleViewSource")));
+            DataContext = this;
+        }
+
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            context.doctor_schedule.Load();
+            doctor_scheduleViewSource.Source = context.doctor_schedule.Local;
+        }
+
+
+
+        private void TBName_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            
+            if (TBName == null || string.IsNullOrWhiteSpace(TBName.Text))
+            {
+                doctor_scheduleViewSource.View.Filter = null;
+                return;
+            }
+            else
+            {
+                string txt = TBName.Text.ToString().ToLower();
+                doctor_scheduleViewSource.View.Filter = item =>
+                {
+#pragma warning disable IDE0019 // Use pattern matching
+                    doctor_schedule m = item as doctor_schedule;
+#pragma warning restore IDE0019 // Use pattern matching
+                    if (m != null)
+                    {
+                        if (!string.IsNullOrWhiteSpace(m.DoctorName) && m.DoctorName.ToLower().Contains(txt))
+                            return true;
+                    }
+                    return false;
+                };
+            }
+        }
+
+        private void TBPatientName_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (TBPatientName == null || string.IsNullOrWhiteSpace(TBPatientName.Text))
+            {
+                doctor_scheduleViewSource.View.Filter = null;
+                return;
+            }
+            else
+            {
+                string txt = TBPatientName.Text.ToString().ToLower();
+                doctor_scheduleViewSource.View.Filter = item =>
+                {
+#pragma warning disable IDE0019 // Use pattern matching
+                    doctor_schedule m = item as doctor_schedule;
+#pragma warning restore IDE0019 // Use pattern matching
+                    if (m != null)
+                    {
+                        if (!string.IsNullOrWhiteSpace(m.PatientName) && m.PatientName.ToLower().Contains(txt))
+                            return true;
+                    }
+                    return false;
+                };
+            }
+        }
+
+        private void dpFrom_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (dpFrom.SelectedDate==null)
+            {
+                doctor_scheduleViewSource.View.Filter = null;
+                return;
+            }
+            else
+            {
+                doctor_scheduleViewSource.View.Filter = item =>
+                {
+#pragma warning disable IDE0019 // Use pattern matching
+                    doctor_schedule m = item as doctor_schedule;
+#pragma warning restore IDE0019 // Use pattern matching
+                    if (m != null)
+                    {
+                        if ( m.SlotStart >dpFrom.SelectedDate)
+                            return true;
+                    }
+                    return false;
+                };
+            }
+        }
+
+        private void dpTo_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (dpTo.SelectedDate == null)
+            {
+                doctor_scheduleViewSource.View.Filter = null;
+                return;
+            }
+            else
+            {
+                doctor_scheduleViewSource.View.Filter = item =>
+                {
+#pragma warning disable IDE0019 // Use pattern matching
+                    doctor_schedule m = item as doctor_schedule;
+#pragma warning restore IDE0019 // Use pattern matching
+                    if (m != null)
+                    {
+                        if (m.SlotEnd < dpTo.SelectedDate)
+                            return true;
+                    }
+                    return false;
+                };
+            }
+        }
+
+        private void btUpdate_Click(object sender, RoutedEventArgs e)
+        {
+            context.SaveChanges();
+        }
+
+        private void btDelete_Click(object sender, RoutedEventArgs e)
+        {
+            object obj = doctor_scheduleDataGrid.SelectedItem;
+            MessageBox.Show(obj.ToString());
+            MessageBoxResult messageBoxResult = MessageBox.Show(string.Format("Are you sure to delete selected Appointment?", "Delete Confirmation", System.Windows.MessageBoxButton.YesNo));
+            if (messageBoxResult == MessageBoxResult.Yes)
+            {
+                //context.appointments.Remove();
+            }
+        }
+
+
+        
+
+    }
+}
+
+System.NotSupportedException: 'Data binding directly to a store query (DbSet, DbQuery, DbSqlQuery, DbRawSqlQuery) is not supported. Instead populate a DbSet with data, for example by calling Load on the DbSet, and then bind to local data. For WPF bind to DbSet.Local. For WinForms bind to DbSet.Local.ToBindingList(). For ASP.NET WebForms you can bind to the result of calling ToList() on the query or use Model Binding, for more information see http://go.microsoft.com/fwlink/?LinkId=389592.'
+
+
+

@@ -23,7 +23,7 @@ namespace Clinic
         string SessionUserRole;
          // this is the Id of Doctor or Patient or Admin 
         clinicEntities context = new clinicEntities();
-        CRUD crud = new CRUD();
+      
 
         public Login()
         {
@@ -52,6 +52,8 @@ namespace Clinic
                                 break;
                             case "Patient":
                                 Globals.SessionId = u.PatientId.Value;
+                                Patient patientView = new Patient();
+                                patientView.Show();
                                 break;
                             case "Admin":
                                 Globals.SessionId = u.Id;

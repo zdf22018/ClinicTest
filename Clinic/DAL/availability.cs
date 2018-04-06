@@ -19,13 +19,6 @@ namespace DAL
         {
             this.timeslots = new HashSet<timeslot>();
         }
-    
-        public int Id { get; set; }
-        public int DoctorId { get; set; }
-        public System.DateTime Date { get; set; }
-        public System.DateTime AvailableFrom { get; set; }
-        public System.DateTime AvailableTo { get; set; }
-        public Nullable<int> AppointmentDuration { get; set; }
 
         public availability(int doctorId, DateTime date, DateTime availableFrom, DateTime availableTo, int? appointmentDuration)
         {
@@ -36,6 +29,13 @@ namespace DAL
             AppointmentDuration = appointmentDuration;
         }
 
+        public int Id { get; set; }
+        public int DoctorId { get; set; }
+        public System.DateTime Date { get; set; }
+        public System.DateTime AvailableFrom { get; set; }
+        public System.DateTime AvailableTo { get; set; }
+        public Nullable<int> AppointmentDuration { get; set; }
+    
         public virtual doctor doctor { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<timeslot> timeslots { get; set; }

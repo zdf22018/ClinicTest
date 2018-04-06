@@ -378,3 +378,11 @@ C:\Users\Jay\Documents\ClinicNew\Clinic\Clinic\obj\Debug\Users.csproj.CoreCompil
 C:\Users\Jay\Documents\ClinicNew\Clinic\Clinic\obj\Debug\Users.csproj.CopyComplete
 C:\Users\Jay\Documents\ClinicNew\Clinic\Clinic\obj\Debug\Clinic.exe
 C:\Users\Jay\Documents\ClinicNew\Clinic\Clinic\obj\Debug\Clinic.pdb
+C:\Users\Jay\Documents\ClinicNew\Clinic\Clinic\obj\Debug\pagesPatient\PatientDetail.g.cs
+C:\Users\Jay\Documents\ClinicNew\Clinic\Clinic\obj\Debug\pagesPatient\PatientTakeAppointment.g.cs
+C:\Users\Jay\Documents\ClinicNew\Clinic\Clinic\obj\Debug\pagesPatient\PatientViewAppointments.g.cs
+C:\Users\Jay\Documents\ClinicNew\Clinic\Clinic\obj\Debug\Patient.g.cs
+C:\Users\Jay\Documents\ClinicNew\Clinic\Clinic\obj\Debug\pagesPatient\PatientDetail.baml
+C:\Users\Jay\Documents\ClinicNew\Clinic\Clinic\obj\Debug\pagesPatient\PatientTakeAppointment.baml
+C:\Users\Jay\Documents\ClinicNew\Clinic\Clinic\obj\Debug\pagesPatient\PatientViewAppointments.baml
+C:\Users\Jay\Documents\ClinicNew\Clinic\Clinic\obj\Debug\Patient.baml

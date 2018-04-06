@@ -20,16 +20,6 @@ namespace DAL
             this.availabilities = new HashSet<availability>();
             this.users = new HashSet<user>();
         }
-    
-        public int Id { get; set; }
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-        public string FullName { get; set; }
-        public string Speciality { get; set; }
-        public string Phone { get; set; }
-        public string Email { get; set; }
-        public string UserName { get; set; }
-        public string LoginPassWord { get; set; }
 
         public doctor(string firstName, string lastName, string speciality, string phone, string email, string userName, string loginPassWord)
         {
@@ -42,6 +32,16 @@ namespace DAL
             LoginPassWord = loginPassWord;
         }
 
+        public int Id { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public string FullName { get; set; }
+        public string Speciality { get; set; }
+        public string Phone { get; set; }
+        public string Email { get; set; }
+        public string UserName { get; set; }
+        public string LoginPassWord { get; set; }
+    
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<availability> availabilities { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
