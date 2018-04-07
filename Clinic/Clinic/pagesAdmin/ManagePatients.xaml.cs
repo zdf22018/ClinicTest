@@ -62,7 +62,34 @@ namespace Clinic.pagesAdmin
 
         private void btDelete_Click(object sender, RoutedEventArgs e)
         {
-            
+            bool CanDelete = true;
+            var list = context.display_appointements_for_Patient;
+            foreach (display_appointements_for_Patient a in list) {
+                if (a.PatientId == int.Parse(idLabel.Content.ToString())) {
+                    CanDelete = false;
+                }
+            }
+            if(CanDelete) {
+                context.patients.Remove (context.patients.Find(int.Parse(idLabel.Content.ToString())));
+                MessageBox.Show("Patient record deleted");
+                            }
+            if (!CanDelete)
+            {
+                MessageBox.Show("you cannot delete a patient who currently has appointment");
+            }
+       
+        }
+
+        private void btAddPatient_Click(object sender, RoutedEventArgs e)
+        {
+            DlgAddPatient dlgAddPatient = new DlgAddPatient();
+            dlgAddPatient.Show();
+        }
+
+        private void btRefresh_Click(object sender, RoutedEventArgs e)
+        {
+            context.patients.Load();
+            patientViewSource.Source = context.patients.Local;
         }
 
         

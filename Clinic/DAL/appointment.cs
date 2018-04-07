@@ -24,6 +24,10 @@ namespace DAL
             PatientId = patientId;
         }
 
+        public appointment()
+        {
+        }
+
         public virtual patient patient { get; set; }
         public virtual timeslot timeslot { get; set; }
     }

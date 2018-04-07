@@ -58,7 +58,7 @@ namespace Clinic.pagesAdmin
 #pragma warning restore IDE0019 // Use pattern matching
                     if (m != null)
                     {
-                        if (!string.IsNullOrWhiteSpace(m.DoctorName) && m.DoctorName.ToLower().Contains(txt))
+                        if (!string.IsNullOrWhiteSpace(m.Doctor) && m.Doctor.ToLower().Contains(txt))
                             return true;
                     }
                     return false;
@@ -83,7 +83,7 @@ namespace Clinic.pagesAdmin
 #pragma warning restore IDE0019 // Use pattern matching
                     if (m != null)
                     {
-                        if (!string.IsNullOrWhiteSpace(m.PatientName) && m.PatientName.ToLower().Contains(txt))
+                        if (!string.IsNullOrWhiteSpace(m.Patient) && m.Patient.ToLower().Contains(txt))
                             return true;
                     }
                     return false;
@@ -102,12 +102,12 @@ namespace Clinic.pagesAdmin
             {
                 doctor_scheduleViewSource.View.Filter = item =>
                 {
-#pragma warning disable IDE0019 // Use pattern matching
+
                     doctor_schedule m = item as doctor_schedule;
-#pragma warning restore IDE0019 // Use pattern matching
+
                     if (m != null)
                     {
-                        if ( m.SlotStart >dpFrom.SelectedDate)
+                        if ( m.Start >dpFrom.SelectedDate)
                             return true;
                     }
                     return false;
@@ -126,12 +126,12 @@ namespace Clinic.pagesAdmin
             {
                 doctor_scheduleViewSource.View.Filter = item =>
                 {
-#pragma warning disable IDE0019 // Use pattern matching
+
                     doctor_schedule m = item as doctor_schedule;
-#pragma warning restore IDE0019 // Use pattern matching
+
                     if (m != null)
                     {
-                        if (m.SlotEnd < dpTo.SelectedDate)
+                        if (m.End < dpTo.SelectedDate)
                             return true;
                     }
                     return false;
@@ -141,6 +141,8 @@ namespace Clinic.pagesAdmin
 
         private void btUpdate_Click(object sender, RoutedEventArgs e)
         {
+           // doctor_scheduleDataGrid 
+
             context.SaveChanges();
         }
 
@@ -155,25 +157,9 @@ namespace Clinic.pagesAdmin
             }
         }
 
-
-        //private void btSearch_Click(object sender, RoutedEventArgs e)
-        //{
-        //    string docName = null; DateTime? dateFrom = null; DateTime? dateTo = null;
-        //    var schedule = context.doctor_schedule;
-
-        //    if (tbName.Text.ToString() != null) { docName = tbName.Text.ToString(); }
-        //    if (dpFrom.SelectedDate != null) { dateFrom = dpFrom.SelectedDate.Value; }
-        //    if (dpTo.SelectedDate != null) { dateTo = dpTo.SelectedDate.Value; }
-
-        //    var filteredResult = from s in schedule
-        //                         where s.DoctorName == docName
-        //                         && s.SlotStart > dateFrom && s.SlotEnd < dateTo
-        //                         select s;
-
-
-
-
-        //}
-
+        private void btAdd_Click(object sender, RoutedEventArgs e)
+        {
+           //maybe need to open another window?
+        }
     }
 }

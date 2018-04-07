@@ -36,5 +36,29 @@ namespace Clinic.pagesPatient
             context.display_appointements_for_Patient.Load();
             display_appointements_for_PatientViewSource.Source = context.display_appointements_for_Patient.Local;
         }
+
+        private void btCancelAppointment_Click(object sender, RoutedEventArgs e)
+        {   try
+            {
+                display_appointements_for_Patient app = (display_appointements_for_Patient)display_appointements_for_PatientListView.SelectedItem;
+                int timeslot = app.TimeSlotId;
+                int appointmentId = app.appointmentId;
+                var app1 = context.appointments.Find(appointmentId);
+                context.timeslots.Find(timeslot).IsAvailable = true;
+                context.appointments.Remove(app1);
+                MessageBoxResult messageBoxResult = MessageBox.Show("Are you sure to delete this appointment?", "Delete Confirmation", MessageBoxButton.YesNo);
+                if (messageBoxResult == MessageBoxResult.Yes)
+                {
+                    context.SaveChanges();
+                    MessageBox.Show("the appointment cancelled");
+                    
+                }
+            }
+            catch
+            {
+                MessageBox.Show("there is no appointment selected");
+            }
+          
+        }
     }
 }

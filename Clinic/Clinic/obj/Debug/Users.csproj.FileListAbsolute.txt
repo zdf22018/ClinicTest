@@ -386,3 +386,5 @@ C:\Users\Jay\Documents\ClinicNew\Clinic\Clinic\obj\Debug\pagesPatient\PatientDet
 C:\Users\Jay\Documents\ClinicNew\Clinic\Clinic\obj\Debug\pagesPatient\PatientTakeAppointment.baml
 C:\Users\Jay\Documents\ClinicNew\Clinic\Clinic\obj\Debug\pagesPatient\PatientViewAppointments.baml
 C:\Users\Jay\Documents\ClinicNew\Clinic\Clinic\obj\Debug\Patient.baml
+C:\Users\Jay\Documents\ClinicNew\Clinic\Clinic\obj\Debug\pagesAdmin\DlgAddPatient.g.cs
+C:\Users\Jay\Documents\ClinicNew\Clinic\Clinic\obj\Debug\pagesAdmin\DlgAddPatient.baml

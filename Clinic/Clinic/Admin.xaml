@@ -12,6 +12,6 @@
         <Button x:Name="btManageAppointments" Content="Manage Appointments" HorizontalAlignment="Left" Margin="247,34,30,5" VerticalAlignment="Top" Width="120" Click="btManageAppointments_Click"/>
         <Button x:Name="btManageTimeSlots" Content="Manage Time Slots" HorizontalAlignment="Left" Margin="364,34,30,5" VerticalAlignment="Top" Width="120" Click="btManageTimeSlots_Click"/>
         <Button x:Name="btLogout" Content="Log out" HorizontalAlignment="Left" Margin="465,34,10,5" VerticalAlignment="Top" Width="120" Click="btLogout_Click"/>
-        <Frame x:Name="FrameAdmin" Margin="10,87,-10,-11"></Frame>
+        <Frame x:Name="FrameAdmin" Margin="10,87,-10,-11" NavigationUIVisibility="Hidden"></Frame>
     </Grid>
 </Window>

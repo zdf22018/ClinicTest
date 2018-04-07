@@ -21,5 +21,6 @@ namespace DAL
         public Nullable<int> DoctorId { get; set; }
         public string Doctor { get; set; }
         public Nullable<bool> Is_Available { get; set; }
+        public int appointmentId { get; set; }
     }
 }

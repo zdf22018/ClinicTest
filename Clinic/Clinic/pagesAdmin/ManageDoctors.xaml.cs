@@ -63,24 +63,20 @@ namespace Clinic.pagesAdmin
 
         private void btDelete_Click(object sender, RoutedEventArgs e)
         {
-            // need to check the data persistancy before delete, no availablity, no available time slots with this doctorId
+            // need to check if the doctor has any future appointments, if not, doctor can be deleted 
+            // neet to delete also the future availability and timeslots pertaining to this doctor
             var a = context.availabilities;
             var slot = context.timeslots;
+            var list = context.display_appointements_for_Patient;
             bool canDelete = true;
-            foreach(availability av in a)
+            foreach(display_appointements_for_Patient app in list)
             {
-                if (av.DoctorId == int.Parse(idLabel.Content.ToString()))
+                if (app.DoctorId == int.Parse(idLabel.Content.ToString()))
                 {
                     canDelete =false;
                 }
             }
-            foreach (timeslot s in slot)
-            {
-                if(s.SlotDoctorId == int.Parse(idLabel.Content.ToString()))
-                {
-                    canDelete = false;
-                }
-            }
+            
 
             if (canDelete)
             {
@@ -89,23 +85,37 @@ namespace Clinic.pagesAdmin
                 {
                     var userList = context.users;
                     int idDeleted = 0;
-                    foreach (user u in userList)
+                    foreach (user u in userList.ToList())
                     {
                         if (u.DoctorId== int.Parse(idLabel.Content.ToString()))
                         {
                             context.users.Remove(context.users.Find(u.Id));
                             idDeleted = u.Id;
                         }
+                        context.SaveChanges();
+                    }
+                    foreach (timeslot s in slot.ToList())
+                    {   if (s.SlotDoctorId == int.Parse(idLabel.Content.ToString()) && s.SlotStart> DateTime.Today)
+                            context.timeslots.Remove(s);
+                        context.SaveChanges();
+                    }
+                    foreach (availability av in a.ToList())
+                    {
+                        if(av.DoctorId== int.Parse(idLabel.Content.ToString()) && av.AvailableFrom>DateTime.Today)
+                        {
+                            context.availabilities.Remove(av);
+                            context.SaveChanges();
+                        }
                     }
                     
                     context.doctors.Remove(context.doctors.Find(int.Parse(idLabel.Content.ToString())));
                     context.SaveChanges();
-                    MessageBox.Show(string.Format("you have deletd Doctor id: {0}",idDeleted.ToString()));
+                    MessageBox.Show(string.Format("you have deleted Doctor id: {0}", idLabel.Content.ToString()));
                 }
             }
             if (!canDelete)
             {
-                MessageBox.Show("you need to first delete the related record in availability and/or timeslots"); }
+                MessageBox.Show("this doctor has future appointment, you need to first take care of appointment"); }
             }
 
         private void btAdd_Click(object sender, RoutedEventArgs e)

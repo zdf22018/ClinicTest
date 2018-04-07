@@ -1,0 +1,29 @@
+﻿<Window x:Class="Clinic.pagesAdmin.DlgAddPatient"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Clinic.pagesAdmin"
+        mc:Ignorable="d"
+        Title="DlgAddPatient" Height="450" Width="800">
+    <Grid Margin="0,0,0,-31">
+        <Label Content="First Name" HorizontalAlignment="Left" Margin="58,54,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name ="tbFirstName" HorizontalAlignment="Left" Height="23" Margin="138,54,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Last Name" HorizontalAlignment="Left" Margin="58,99,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="tbLastName" HorizontalAlignment="Left" Height="23" Margin="138,105,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Phone" HorizontalAlignment="Left" Margin="58,177,0,0" VerticalAlignment="Top"/>
+        <TextBox  x:Name="tbPhone" HorizontalAlignment="Left" Height="23" Margin="138,177,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Email" HorizontalAlignment="Left" Margin="58,245,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="tbEmail" HorizontalAlignment="Left" Height="23" Margin="138,245,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Date of Birth" HorizontalAlignment="Left" Margin="58,307,0,0" VerticalAlignment="Top"/>
+        <Label Content="Medical Card No" HorizontalAlignment="Left" Margin="358,54,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name ="tbMedicalCardNo" HorizontalAlignment="Left" Height="23" Margin="474,54,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <Label Content="UserName" HorizontalAlignment="Left" Margin="358,105,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="tbUserName" HorizontalAlignment="Left" Height="23" Margin="474,105,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <Button x:Name="tbSavePatient" Content="Save" HorizontalAlignment="Left" Margin="441,245,0,0" VerticalAlignment="Top" Width="75" Click="tbSavePatient_Click"/>
+        <Label Content="LoginPassword" HorizontalAlignment="Left" Margin="358,153,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="tbLoginPassword" HorizontalAlignment="Left" Height="23" Margin="474,153,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <DatePicker x:Name="dpDOB" HorizontalAlignment="Left" Margin="138,307,0,0" VerticalAlignment="Top"/>
+
+    </Grid>
+</Window>

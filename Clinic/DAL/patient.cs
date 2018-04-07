@@ -20,7 +20,19 @@ namespace DAL
             this.appointments = new HashSet<appointment>();
             this.users = new HashSet<user>();
         }
-    
+
+        public patient(string firstName, string lastName, string phone, string email, DateTime? dateOfBirth, string medicalCardNo, string userName, string loginPassWord)
+        {
+            FirstName = firstName;
+            LastName = lastName;
+            Phone = phone;
+            Email = email;
+            DateOfBirth = dateOfBirth;
+            MedicalCardNo = medicalCardNo;
+            UserName = userName;
+            LoginPassWord = loginPassWord;
+        }
+
         public int Id { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }

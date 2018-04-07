@@ -31,8 +31,10 @@ namespace DAL
         public virtual DbSet<patient> patients { get; set; }
         public virtual DbSet<timeslot> timeslots { get; set; }
         public virtual DbSet<user> users { get; set; }
-        public virtual DbSet<doctor_schedule> doctor_schedule { get; set; }
         public virtual DbSet<display_appointements_for_Patient> display_appointements_for_Patient { get; set; }
         public virtual DbSet<display_available_slots> display_available_slots { get; set; }
+        public virtual DbSet<take_Appointment> take_Appointment { get; set; }
+        public virtual DbSet<database_firewall_rules> database_firewall_rules { get; set; }
+        public virtual DbSet<doctor_schedule> doctor_schedule { get; set; }
     }
 }

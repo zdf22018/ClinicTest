@@ -12,16 +12,10 @@ namespace DAL
     using System;
     using System.Collections.Generic;
     
-    public partial class doctor_schedule
+    public partial class take_Appointment
     {
-        public int appointmentId { get; set; }
-        public int patientId { get; set; }
-        public int slotId { get; set; }
+        public string Doctor { get; set; }
         public Nullable<System.DateTime> Start { get; set; }
         public Nullable<System.DateTime> End { get; set; }
-        public Nullable<int> DoctorId { get; set; }
-        public string Doctor { get; set; }
-        public string Patient { get; set; }
-        public Nullable<bool> Is_Available { get; set; }
     }
 }

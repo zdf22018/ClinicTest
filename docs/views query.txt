@@ -1,0 +1,35 @@
+create view display_available_slots as (
+select timeslots.Id as 'TimeSoltId', doctors.FullName as 'Doctor', timeslots.SlotStart as 'Start', timeslots.SlotEnd as 'End' 
+from timeslots
+inner join doctors on timeslots.SlotDoctorId = doctors.Id
+where timeslots.IsAvailable=1
+
+)
+
+create view display_appointements_for_Patient as(
+select timeslots.Id as 'TimeSlotId', appointments.PatientId as 'PatientId', timeslots.SlotStart as 'Start', timeslots.SlotEnd as 'End',
+timeslots.SlotDoctorId as 'DoctorId', doctors.FullName as 'Doctor', timeslots.IsAvailable as 'Is Available'
+from timeslots
+inner join appointments on timeslots.Id = appointments.TimeSlotId
+inner join doctors on doctors.Id = timeslots.SlotDoctorId
+
+)
+
+create view display_appointements_for_Patient as(
+select timeslots.Id as 'TimeSlotId', appointments.Id as 'appointmentId', appointments.PatientId as 'PatientId', timeslots.SlotStart as 'Start', timeslots.SlotEnd as 'End',
+timeslots.SlotDoctorId as 'DoctorId', doctors.FullName as 'Doctor', timeslots.IsAvailable as 'Is Available'
+from timeslots
+inner join appointments on timeslots.Id = appointments.TimeSlotId
+inner join doctors on doctors.Id = timeslots.SlotDoctorId
+where timeslots.SlotStart >= getDate()
+)
+
+create view doctor_schedule as(
+select appointments.Id as 'appointmentId', appointments.PatientId as 'patientId', appointments.TimeSlotId as 'slotId', timeslots.SlotStart as 'Start', timeslots.SlotEnd as 'End',
+timeslots.SlotDoctorId as 'DoctorId', doctors.FullName as 'Doctor', patients.FullName as 'Patient', timeslots.IsAvailable as 'Is Available'
+from appointments
+inner join timeslots on timeslots.Id = appointments.TimeSlotId
+inner join patients on appointments.PatientId=patients.Id
+inner join doctors on doctors.Id = timeslots.SlotDoctorId
+where timeslots.SlotStart >= getDate()
+)

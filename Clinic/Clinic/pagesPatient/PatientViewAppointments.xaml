@@ -12,7 +12,7 @@
         
         <CollectionViewSource x:Key="display_appointements_for_PatientViewSource" d:DesignSource="{d:DesignInstance {x:Type DAL:display_appointements_for_Patient}, CreateList=True}"/>
     </Page.Resources>
-    <Grid DataContext="{StaticResource display_appointements_for_PatientViewSource}">
+    <Grid  DataContext="{StaticResource display_appointements_for_PatientViewSource}">
         <ListView x:Name="display_appointements_for_PatientListView" ItemsSource="{Binding Source={StaticResource display_appointements_for_PatientViewSource}}" Margin="40,54,212,166" SelectionMode="Single">
             <ListView.ItemContainerStyle>
                 <Style>
@@ -47,6 +47,7 @@
                 </GridView>
             </ListView.View>
         </ListView>
+        <Button x:Name="btCancelAppointment" Content="Cancel Selected Appointment" HorizontalAlignment="Left" Margin="642,77,0,0" VerticalAlignment="Top" Width="75" Click="btCancelAppointment_Click"/>
     </Grid>
 
 </Page>

@@ -79,6 +79,9 @@
     <Compile Include="pagesAdmin\DlgAddDoctor.xaml.cs">
       <DependentUpon>DlgAddDoctor.xaml</DependentUpon>
     </Compile>
+    <Compile Include="pagesAdmin\DlgAddPatient.xaml.cs">
+      <DependentUpon>DlgAddPatient.xaml</DependentUpon>
+    </Compile>
     <Compile Include="pagesAdmin\ManageAppointments.xaml.cs">
       <DependentUpon>ManageAppointments.xaml</DependentUpon>
     </Compile>
@@ -115,6 +118,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="pagesAdmin\DlgAddDoctor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="pagesAdmin\DlgAddPatient.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

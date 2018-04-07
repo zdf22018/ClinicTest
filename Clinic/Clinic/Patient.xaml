@@ -11,6 +11,6 @@
         <Button x:Name="btTakeAppointment" Content="Take Appointment" HorizontalAlignment="Left" Margin="184,43,0,0" VerticalAlignment="Top" Width="93" Click="btTakeAppointment_Click"/>
         <Button x:Name="btViewMyAppointments" Content="View My Appointments" HorizontalAlignment="Left" Margin="348,43,0,0" VerticalAlignment="Top" Width="91" Click="btViewMyAppointments_Click"/>
         <Button x:Name="btLogout" Content="Log out" HorizontalAlignment="Left" Margin="511,43,0,0" VerticalAlignment="Top" Width="91" Click="btLogout_Click"/>
-        <Frame x:Name="FramePatient" Margin="5,80,0,0" ></Frame>
+        <Frame x:Name="FramePatient" Margin="5,80,0,0" NavigationUIVisibility="Hidden" ></Frame>
     </Grid>
 </Window>

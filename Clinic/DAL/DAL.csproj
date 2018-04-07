@@ -57,6 +57,9 @@
       <DependentUpon>ModelClinic.tt</DependentUpon>
     </Compile>
     <Compile Include="CRUD.cs" />
+    <Compile Include="database_firewall_rules.cs">
+      <DependentUpon>ModelClinic.tt</DependentUpon>
+    </Compile>
     <Compile Include="display_appointements_for_Patient.cs">
       <DependentUpon>ModelClinic.tt</DependentUpon>
     </Compile>
@@ -88,6 +91,9 @@
       <DependentUpon>ModelClinic.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="take_Appointment.cs">
+      <DependentUpon>ModelClinic.tt</DependentUpon>
+    </Compile>
     <Compile Include="timeslot.cs">
       <DependentUpon>ModelClinic.tt</DependentUpon>
     </Compile>

@@ -54,6 +54,8 @@
         <Button x:Name="btNext" Content="Next" HorizontalAlignment="Left" Margin="477,64,0,0" VerticalAlignment="Top" Width="75" Click="btNext_Click" />
         <Button x:Name="btUpdate" Content="Update" HorizontalAlignment="Left" Margin="582,64,0,0" VerticalAlignment="Top" Width="75" Click="btUpdate_Click" />
         <Button x:Name="btDelete" Content="Delete" HorizontalAlignment="Left" Margin="690,64,0,0" VerticalAlignment="Top" Width="75" Click="btDelete_Click"/>
+        <Button x:Name="btAddPatient" Content="Add Patient" HorizontalAlignment="Left" Margin="364,149,0,0" VerticalAlignment="Top" Width="75" Click="btAddPatient_Click"/>
+        <Button x:Name="btRefresh" Content="Refresh page" HorizontalAlignment="Left" Margin="497,149,0,0" VerticalAlignment="Top" Width="75" Click="btRefresh_Click"/>
 
     </Grid>
 </Page>
