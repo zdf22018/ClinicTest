@@ -6,14 +6,15 @@
       xmlns:local="clr-namespace:Clinic.pages"
       xmlns:DAL="clr-namespace:DAL;assembly=DAL" x:Class="Clinic.pages.ViewPatient"
       mc:Ignorable="d"
-      Title="ViewPatient" Loaded="Page_Loaded" Width="999.286" Height="771.428" >
+      Title="ViewPatient" Loaded="Page_Loaded" Width="1200" Height="771.428" >
 
     <Page.Resources>
         <CollectionViewSource x:Key="patientViewSource" d:DesignSource="{d:DesignInstance {x:Type DAL:patient}, CreateList=True}"/>
-        <CollectionViewSource x:Key="patientappointmentsViewSource" Source="{Binding appointments, Source={StaticResource patientViewSource}}"/>
+       
+        <CollectionViewSource x:Key="display_appointements_for_PatientViewSource" d:DesignSource="{d:DesignInstance {x:Type DAL:display_appointements_for_Patient}, CreateList=True}"/>
     </Page.Resources>
 
-    <Grid DataContext="{StaticResource patientappointmentsViewSource}" Margin="0,0,0,10">
+    <Grid DataContext="{StaticResource display_appointements_for_PatientViewSource}" Margin="0,0,0,10">
 
         <Grid x:Name="grid1" VerticalAlignment="Top" Margin="32,77,0,0" HorizontalAlignment="Left" DataContext="{StaticResource patientViewSource}">
             <Grid.RowDefinitions>
@@ -46,26 +47,33 @@
         </Grid>
         <Button x:Name ="btPrevious" Content="Previous" HorizontalAlignment="Left" Margin="32,10,0,0" VerticalAlignment="Top" Width="75" Click="btPrevious_Click"/>
         <Button x:Name="btNext" Content="Next" HorizontalAlignment="Left" Margin="145,10,0,0" VerticalAlignment="Top" Width="75" Click="btNext_Click"/>
-        <Grid x:Name="grid2" HorizontalAlignment="Left" Margin="383,109,0,0" VerticalAlignment="Top" Height="160" Width="296">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="105"/>
-                <ColumnDefinition Width="13"/>
-                <ColumnDefinition Width="Auto" MinWidth="124"/>
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition/>
-                <RowDefinition Height="Auto" MinHeight="69"/>
-                <RowDefinition Height="Auto" MinHeight="32"/>
-            </Grid.RowDefinitions>
-
-            <Label Content="Doctor Id:" Grid.Column="0" HorizontalAlignment="Left" Margin="3,19,0,18" Grid.Row="1" VerticalAlignment="Center" Height="22" Width="52"/>
-            <TextBox x:Name="slotDoctorIdTextBox" Grid.Column="2" HorizontalAlignment="Left" Height="24" Margin="3,17,0,18" Grid.Row="1" Text="{Binding timeslot.SlotDoctorId, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
-            <Label Content="Appointment Start:" Grid.Column="0" HorizontalAlignment="Left" Margin="3,24,0,23" Grid.Row="2" VerticalAlignment="Center" Height="22" Width="89"/>
-            <TextBox x:Name="slotEndTextBox" Grid.Column="2" HorizontalAlignment="Left" Height="24" Margin="3,22,0,23" Grid.Row="2" Text="{Binding timeslot.SlotEnd, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
-            <Label Content="Appointment End:" Grid.Column="0" HorizontalAlignment="Left" Margin="3,5,0,5" Grid.Row="3" VerticalAlignment="Center" Height="22" Width="89"/>
-            <TextBox x:Name="slotStartTextBox" Grid.Column="2" HorizontalAlignment="Left" Height="24" Margin="3,4,0,4" Grid.Row="3" Text="{Binding timeslot.SlotStart, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
-        </Grid>
+        <DataGrid x:Name="display_appointements_for_PatientDataGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding Source={StaticResource display_appointements_for_PatientViewSource}}" Margin="277,77,460,495" RowDetailsVisibilityMode="VisibleWhenSelected">
+            <DataGrid.Columns>
+                <DataGridTextColumn x:Name="appointmentIdColumn" Binding="{Binding appointmentId}" Header="appointment Id" Width="100"/>
+                <DataGridTemplateColumn x:Name="doctorColumn" Header="Doctor" Width="100">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Label Content="{Binding Doctor}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+               
+                <DataGridTemplateColumn x:Name="startColumn" Header="Start" Width="130">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Label Content="{Binding Start}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn x:Name="endColumn" Header="End" Width="130">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Label Content="{Binding End}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
 
     </Grid>
 </Page>

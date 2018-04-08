@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\Jay\Documents\ClinicNew\Clinic\Clinic\App.xaml
-17-868597968
+18-520792717
 
-22-2139145685
+23247771817
 25-1974986740
-Admin.xaml;Login.xaml;pagesAdmin\DlgAddDoctor.xaml;pagesAdmin\DlgAddPatient.xaml;pagesAdmin\ManageAppointments.xaml;pagesAdmin\ManageDoctors.xaml;pagesAdmin\ManagePatients.xaml;pagesAdmin\ManageTimeSlots.xaml;pagesPatient\PatientDetail.xaml;pagesPatient\PatientTakeAppointment.xaml;pagesPatient\PatientViewAppointments.xaml;pages\AddAvailability.xaml;pages\DoctorDetail.xaml;MainWindow.xaml;pages\ViewPatient.xaml;pages\ViewSchedule.xaml;Patient.xaml;
+Admin.xaml;Login.xaml;pagesAdmin\DlgAddAppointment.xaml;pagesAdmin\DlgAddDoctor.xaml;pagesAdmin\DlgAddPatient.xaml;pagesAdmin\ManageAppointments.xaml;pagesAdmin\ManageDoctors.xaml;pagesAdmin\ManagePatients.xaml;pagesAdmin\ManageTimeSlots.xaml;pagesPatient\PatientDetail.xaml;pagesPatient\PatientTakeAppointment.xaml;pagesPatient\PatientViewAppointments.xaml;pages\AddAvailability.xaml;pages\DoctorDetail.xaml;MainWindow.xaml;pages\ViewAppointments.xaml;pages\ViewPatient.xaml;Patient.xaml;
 
 False
 

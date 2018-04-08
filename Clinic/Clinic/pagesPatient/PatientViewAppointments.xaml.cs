@@ -35,11 +35,21 @@ namespace Clinic.pagesPatient
         {
             context.display_appointements_for_Patient.Load();
             display_appointements_for_PatientViewSource.Source = context.display_appointements_for_Patient.Local;
+            display_appointements_for_PatientViewSource.View.Filter = item =>
+            {
+                display_appointements_for_Patient m = item as display_appointements_for_Patient;
+                if (m != null)
+                {
+                    if (m.PatientId.Equals(Globals.SessionId))
+                        return true;
+                }
+                return false;
+            };
         }
 
         private void btCancelAppointment_Click(object sender, RoutedEventArgs e)
         {   try
-            {
+            {   using (clinicEntities context = new clinicEntities()) { 
                 display_appointements_for_Patient app = (display_appointements_for_Patient)display_appointements_for_PatientListView.SelectedItem;
                 int timeslot = app.TimeSlotId;
                 int appointmentId = app.appointmentId;
@@ -51,7 +61,20 @@ namespace Clinic.pagesPatient
                 {
                     context.SaveChanges();
                     MessageBox.Show("the appointment cancelled");
-                    
+                    context.display_appointements_for_Patient.Load();
+                    display_appointements_for_PatientViewSource.Source = context.display_appointements_for_Patient.Local;
+                        display_appointements_for_PatientViewSource.View.Filter = item =>
+                        {
+                            display_appointements_for_Patient m = item as display_appointements_for_Patient;
+                            if (m != null)
+                            {
+                                if (m.PatientId.Equals(Globals.SessionId))
+                                    return true;
+                            }
+                            return false;
+                        };
+
+                    }
                 }
             }
             catch

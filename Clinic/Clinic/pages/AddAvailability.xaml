@@ -14,7 +14,7 @@
         <CollectionViewSource x:Key="doctoravailabilitiesViewSource" Source="{Binding availabilities, Source={StaticResource doctorViewSource}}"/>
     </Page.Resources>
 
-    <Grid DataContext="{StaticResource doctoravailabilitiesViewSource}">
+    <Grid DataContext="{StaticResource doctoravailabilitiesViewSource}" Height="700">
         <Label x:Name="label" Content="Add Availability" HorizontalAlignment="Left" Margin="102,66,0,0" VerticalAlignment="Top"/>
         <DatePicker x:Name="dpDateAddAv"  HorizontalAlignment="Left" Margin="102,104,0,0" VerticalAlignment="Top"/>
         <Label x:Name="label1" Content="Start Time" HorizontalAlignment="Left" Margin="102,143,0,0" VerticalAlignment="Top"/>
@@ -41,14 +41,13 @@
             <ComboBoxItem Content="14:00"/>
             <ComboBoxItem Content="15:00"/>
             <ComboBoxItem Content="16:00"/>
-            <ComboBoxItem Content="16:00"/>
             <ComboBoxItem Content="17:00"/>
         </ComboBox>
         <Button x:Name="btAdd" Content="Add" HorizontalAlignment="Left" Margin="107,296,0,0" VerticalAlignment="Top" Width="75" Click="btAdd_Click"/>
         <RadioButton x:Name="rb30M" Content="30 minutes" GroupName="duration" HorizontalAlignment="Left" Margin="180,262,0,0" VerticalAlignment="Top"/>
         <RadioButton x:Name ="rb60M" Content="60 minutes" GroupName="duration" HorizontalAlignment="Left" Margin="285,262,0,0" VerticalAlignment="Top"/>
         <Label Content="Duration" HorizontalAlignment="Left" Margin="100,257,0,0" VerticalAlignment="Top" RenderTransformOrigin="-3.013,0.109"/>
-        <DataGrid x:Name="availabilitiesDataGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding}" Margin="403,94,54,156" RowDetailsVisibilityMode="VisibleWhenSelected">
+        <DataGrid x:Name="availabilitiesDataGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding}" Margin="403,94,54,156" RowDetailsVisibilityMode="VisibleWhenSelected" Height="400">
             <DataGrid.Columns>
                 <DataGridTextColumn x:Name="doctorIdColumn" Binding="{Binding DoctorId}" Header="Doctor Id" Width="auto"/>
                 <DataGridTextColumn x:Name="availableFromColumn" Binding="{Binding AvailableFrom}" Header="Available From" Width="auto"/>

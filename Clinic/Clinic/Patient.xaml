@@ -7,10 +7,10 @@
         mc:Ignorable="d"
         Title="Patient" Height="450" Width="800">
     <Grid>
-        <Button x:Name="btMyDetail" Content="My Detail" HorizontalAlignment="Left" Margin="10,38,0,0" VerticalAlignment="Top" Width="98" Height="27" Click="btMyDetail_Click"/>
-        <Button x:Name="btTakeAppointment" Content="Take Appointment" HorizontalAlignment="Left" Margin="184,43,0,0" VerticalAlignment="Top" Width="93" Click="btTakeAppointment_Click"/>
-        <Button x:Name="btViewMyAppointments" Content="View My Appointments" HorizontalAlignment="Left" Margin="348,43,0,0" VerticalAlignment="Top" Width="91" Click="btViewMyAppointments_Click"/>
-        <Button x:Name="btLogout" Content="Log out" HorizontalAlignment="Left" Margin="511,43,0,0" VerticalAlignment="Top" Width="91" Click="btLogout_Click"/>
+        <Button x:Name="btMyDetail" Content="My Detail" HorizontalAlignment="Left" Margin="10,43,0,0" VerticalAlignment="Top" Width="98" Height="22" Click="btMyDetail_Click"/>
+        <Button x:Name="btTakeAppointment" Content="Take Appointment" HorizontalAlignment="Left" Margin="146,43,0,0" VerticalAlignment="Top" Width="163" Click="btTakeAppointment_Click"/>
+        <Button x:Name="btViewMyAppointments" Content="View and Manage My Appointments" HorizontalAlignment="Left" Margin="348,43,0,0" VerticalAlignment="Top" Width="229" Click="btViewMyAppointments_Click"/>
+        <Button x:Name="btLogout" Content="Log out" HorizontalAlignment="Left" Margin="614,43,0,0" VerticalAlignment="Top" Width="91" Click="btLogout_Click"/>
         <Frame x:Name="FramePatient" Margin="5,80,0,0" NavigationUIVisibility="Hidden" ></Frame>
     </Grid>
 </Window>

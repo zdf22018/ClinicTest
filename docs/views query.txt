@@ -2,7 +2,7 @@ create view display_available_slots as (
 select timeslots.Id as 'TimeSoltId', doctors.FullName as 'Doctor', timeslots.SlotStart as 'Start', timeslots.SlotEnd as 'End' 
 from timeslots
 inner join doctors on timeslots.SlotDoctorId = doctors.Id
-where timeslots.IsAvailable=1
+where timeslots.IsAvailable=1 && timeslots.SlotStart >=getDate()
 
 )
 

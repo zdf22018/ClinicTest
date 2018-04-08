@@ -88,7 +88,7 @@ namespace Clinic
                 availability m = item as availability;
                 if (m != null)
                 {
-                    if (m.DoctorId.Equals(Globals.SessionId))
+                    if (m.DoctorId.Equals(Globals.SessionId) && m.AvailableFrom >=DateTime.Today)
                         return true;
                 }
                 return false;

@@ -11,11 +11,11 @@
         <CollectionViewSource x:Key="doctorViewSource" d:DesignSource="{d:DesignInstance {x:Type DAL:doctor}, CreateList=True}"/>
     </Window.Resources>
     <Grid DataContext="{StaticResource doctorViewSource}">
-        <Button x:Name="btDoctorDetail" Content="My Details" HorizontalAlignment="Left" Margin="10,27,0,0" VerticalAlignment="Top" Width="64" Click="btDoctorDetail_Click"/>
-        <Button x:Name="btViewAppointments" Content="View Appointments" HorizontalAlignment="Left" Margin="79,27,0,0" VerticalAlignment="Top" Width="117" Click="btViewAppointments_Click"/>
-        <Button x:Name="btViewPatients" Content="View Patients" HorizontalAlignment="Left" Margin="201,27,0,0" VerticalAlignment="Top" Width="75" Click="btViewPatients_Click"/>
-        <Button x:Name="btAddAvailability" Content="Add Availability" HorizontalAlignment="Left" Margin="281,27,0,0" VerticalAlignment="Top" Width="121" Click="btAddAvailability_Click"/>
-        <Button x:Name="btLogout" Content="Log out" HorizontalAlignment="Left" Margin="407,27,0,0" VerticalAlignment="Top" Width="75" Click="btLogout_Click"/>
+        <Button x:Name="btDoctorDetail" Content="My Details" HorizontalAlignment="Left" Margin="10,27,0,0" VerticalAlignment="Top" Width="91" Click="btDoctorDetail_Click"/>
+        <Button x:Name="btViewAppointments" Content="View Appointments" HorizontalAlignment="Left" Margin="117,27,0,0" VerticalAlignment="Top" Width="150" Click="btViewAppointments_Click"/>
+        <Button x:Name="btViewPatients" Content="View Patients" HorizontalAlignment="Left" Margin="283,27,0,0" VerticalAlignment="Top" Width="118" Click="btViewPatients_Click"/>
+        <Button x:Name="btAddAvailability" Content="Add Availability" HorizontalAlignment="Left" Margin="425,27,0,0" VerticalAlignment="Top" Width="135" Click="btAddAvailability_Click"/>
+        <Button x:Name="btLogout" Content="Log out" HorizontalAlignment="Left" Margin="582,27,0,0" VerticalAlignment="Top" Width="75" Click="btLogout_Click"/>
         <Frame x:Name="DoctorMainFrame" Margin="0,60,0,186" NavigationUIVisibility="Hidden"/>
 
     </Grid>

@@ -6,65 +6,77 @@
       xmlns:local="clr-namespace:Clinic.pagesAdmin"
       xmlns:DAL="clr-namespace:DAL;assembly=DAL" x:Class="Clinic.pagesAdmin.ManageAppointments"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="450" d:DesignWidth="1200"
       Title="ManageAppointments" Loaded="Page_Loaded" >
 
     <Page.Resources>
         <CollectionViewSource x:Key="doctor_scheduleViewSource" d:DesignSource="{d:DesignInstance {x:Type DAL:doctor_schedule}, CreateList=True}"/>
     </Page.Resources>
 
-    <Grid DataContext="{StaticResource doctor_scheduleViewSource}" Margin="0,0,0,-210">
+    <Grid DataContext="{StaticResource doctor_scheduleViewSource}" Height="611" VerticalAlignment="Top" Margin="0,0,0,-161">
         <Label Content="From" HorizontalAlignment="Left" Margin="312,88,0,0" VerticalAlignment="Top"/>
         <DatePicker x:Name="dpFrom" HorizontalAlignment="Left" Margin="378,93,0,0" VerticalAlignment="Top" SelectedDateChanged="dpFrom_SelectedDateChanged"/>
         <Label Content="To" HorizontalAlignment="Left" Margin="540,89,0,0" VerticalAlignment="Top"/>
         <DatePicker x:Name="dpTo" HorizontalAlignment="Left" Margin="593,89,0,0" VerticalAlignment="Top" SelectedDateChanged="dpTo_SelectedDateChanged"/>
         <Label Content="Doctor Name" HorizontalAlignment="Left" Margin="72,110,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="TBName" HorizontalAlignment="Left" Height="23" Margin="160,110,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" TextChanged="TBName_TextChanged"/>
-        <Button x:Name="btUpdate" Content="Update Appointment" HorizontalAlignment="Left" Margin="655,190,0,0" VerticalAlignment="Top" Width="145" Click="btUpdate_Click" RenderTransformOrigin="0.69,0.5" />
-        <Button x:Name="btDelete" Content="Delete Appointment" HorizontalAlignment="Left" Margin="655,239,0,0" VerticalAlignment="Top" Width="145" Click="btDelete_Click"/>
-        <Button x:Name="btAdd" Content="Add Appointment" HorizontalAlignment="Left" Margin="655,288,0,0" VerticalAlignment="Top" Width="145" Click="btAdd_Click" />
+        <Button x:Name="btUpdate" Content="Update Appointment" HorizontalAlignment="Left" Margin="686,164,0,0" VerticalAlignment="Top" Width="144" Click="btUpdate_Click" RenderTransformOrigin="0.69,0.5" />
+        <Button x:Name="btDelete" Content="Delete Appointment" HorizontalAlignment="Left" Margin="685,217,0,0" VerticalAlignment="Top" Width="145" Click="btDelete_Click" RenderTransformOrigin="0.838,0.182"/>
+        <Button x:Name="btAdd" Content="Add Appointment" HorizontalAlignment="Left" Margin="685,264,0,0" VerticalAlignment="Top" Width="145" Click="btAdd_Click" />
         <Label Content="Patient" HorizontalAlignment="Left" Margin="74,75,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name ="TBPatientName" HorizontalAlignment="Left" Height="23" Margin="160,75,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" TextChanged="TBPatientName_TextChanged"/>
-        <DataGrid x:Name="doctor_scheduleDataGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding}" Margin="0,154,160,280" RowDetailsVisibilityMode="VisibleWhenSelected">
+        <DataGrid x:Name="doctor_scheduleDataGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding}" Margin="10,147,188,182" RowDetailsVisibilityMode="VisibleWhenSelected">
+            <DataGrid.ColumnHeaderStyle>
+                <Style TargetType="DataGridColumnHeader">
+                    <Setter Property="ContentTemplate">
+                        <Setter.Value>
+                            <DataTemplate>
+                                <TextBlock TextWrapping="Wrap" Text="{Binding}"></TextBlock>
+                            </DataTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </DataGrid.ColumnHeaderStyle>
+
             <DataGrid.Columns>
-                <DataGridTemplateColumn x:Name="appointmentIdColumn" Header="appointment Id" Width="95">
+                <DataGridTemplateColumn x:Name="appointmentIdColumn" Header="appointment Id" Width="40">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <Label Content="{Binding appointmentId}"/>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
-                <DataGridTemplateColumn x:Name="doctorColumn" Header="Doctor" Width="90">
+                <DataGridTemplateColumn x:Name="doctorColumn" Header="Doctor" Width="100">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <Label Content="{Binding Doctor}"/>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
-                <DataGridTemplateColumn x:Name="doctorIdColumn" Header="Doctor Id" Width="60">
+                <DataGridTemplateColumn x:Name="doctorIdColumn" Header="Doctor Id" Width="40">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <Label Content="{Binding DoctorId}"/>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
-                
-                <DataGridTemplateColumn x:Name="patientColumn" Header="Patient" Width="90">
+
+                <DataGridTemplateColumn x:Name="patientColumn" Header="Patient" Width="100">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <Label Content="{Binding Patient}"/>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
-                <DataGridTemplateColumn x:Name="patientIdColumn" Header="patient Id" Width="70">
+                <DataGridTemplateColumn x:Name="patientIdColumn" Header="patient Id" Width="40">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <Label Content="{Binding patientId}"/>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
-                <DataGridTextColumn x:Name="startColumn" Binding="{Binding Start}" Header="Start" Width="120"/>
-                <DataGridTextColumn x:Name="endColumn" Binding="{Binding End}" Header="End" Width="120"/>
+                <DataGridTextColumn x:Name="startColumn" Binding="{Binding Start}" Header="Start" Width="130"/>
+                <DataGridTextColumn x:Name="endColumn" Binding="{Binding End}" Header="End" Width="130"/>
             </DataGrid.Columns>
         </DataGrid>
 

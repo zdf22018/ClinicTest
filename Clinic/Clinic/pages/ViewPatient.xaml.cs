@@ -24,18 +24,33 @@ namespace Clinic.pages
     {
         clinicEntities context = new clinicEntities();
         CollectionViewSource patientViewSource;
+        CollectionViewSource display_appointements_for_PatientViewSource;
+
 
         public ViewPatient()
         {
             InitializeComponent();
-            patientViewSource = ((CollectionViewSource)(FindResource("patientViewSource")));
-            DataContext = this;
+            patientViewSource = ((CollectionViewSource)(this.FindResource("patientViewSource")));
+            display_appointements_for_PatientViewSource= ((CollectionViewSource)(this.FindResource("display_appointements_for_PatientViewSource")));
+           
         }
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
             context.patients.Load();
             patientViewSource.Source = context.patients.Local;
+            context.display_appointements_for_Patient.Load();
+            display_appointements_for_PatientViewSource.Source = context.display_appointements_for_Patient.Local;
+            display_appointements_for_PatientViewSource.View.Filter = item =>
+            {
+                display_appointements_for_Patient m = item as display_appointements_for_Patient;
+                if (m != null)
+                {
+                    if (m.PatientId.Equals(int.Parse(idLabel.Content.ToString())))
+                        return true;
+                }
+                return false;
+            };
         }
 
         private void btPrevious_Click(object sender, RoutedEventArgs e)
@@ -43,12 +58,32 @@ namespace Clinic.pages
 
             if (patientViewSource.View.CurrentPosition > 0)
                 patientViewSource.View.MoveCurrentToPrevious();
+            display_appointements_for_PatientViewSource.View.Filter = item =>
+            {
+                display_appointements_for_Patient m = item as display_appointements_for_Patient;
+                if (m != null)
+                {
+                    if (m.PatientId.Equals(int.Parse(idLabel.Content.ToString())))
+                        return true;
+                }
+                return false;
+            };
         }
 
         private void btNext_Click(object sender, RoutedEventArgs e)
         {
             if (patientViewSource.View.CurrentPosition < ((CollectionView)patientViewSource.View).Count - 1)
                 patientViewSource.View.MoveCurrentToNext();
+            display_appointements_for_PatientViewSource.View.Filter = item =>
+            {
+                display_appointements_for_Patient m = item as display_appointements_for_Patient;
+                if (m != null)
+                {
+                    if (m.PatientId.Equals(int.Parse(idLabel.Content.ToString())))
+                        return true;
+                }
+                return false;
+            };
         }
     }
 }

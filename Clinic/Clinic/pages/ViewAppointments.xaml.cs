@@ -18,13 +18,13 @@ using System.Windows.Shapes;
 namespace Clinic.pages
 {
     /// <summary>
-    /// Interaction logic for ViewSchedule.xaml
+    /// Interaction logic for ViewAppointments.xaml
     /// </summary>
-    public partial class ViewSchedule : Page
+    public partial class ViewAppointments : Page
     {
         clinicEntities context = new clinicEntities();
         CollectionViewSource doctor_scheduleViewSource;
-        public ViewSchedule()
+        public ViewAppointments()
         {
             InitializeComponent();
             doctor_scheduleViewSource = ((CollectionViewSource)(FindResource("doctor_scheduleViewSource")));
@@ -46,5 +46,7 @@ namespace Clinic.pages
                 return false;
             };
         }
+
+
     }
 }

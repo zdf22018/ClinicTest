@@ -148,18 +148,36 @@ namespace Clinic.pagesAdmin
 
         private void btDelete_Click(object sender, RoutedEventArgs e)
         {
-            object obj = doctor_scheduleDataGrid.SelectedItem;
-            MessageBox.Show(obj.ToString());
-            MessageBoxResult messageBoxResult = MessageBox.Show(string.Format("Are you sure to delete selected Appointment?", "Delete Confirmation", System.Windows.MessageBoxButton.YesNo));
-            if (messageBoxResult == MessageBoxResult.Yes)
+            try
             {
-                //context.appointments.Remove();
+                using (clinicEntities context = new clinicEntities())
+                {
+                    doctor_schedule app = (doctor_schedule)doctor_scheduleDataGrid.SelectedItem;
+                    int timeslot = app.slotId;
+                    int appointmentId = app.appointmentId;
+                    var app1 = context.appointments.Find(appointmentId);
+                    context.timeslots.Find(timeslot).IsAvailable = true;
+                    context.appointments.Remove(app1);
+                    MessageBoxResult messageBoxResult = MessageBox.Show("Are you sure to delete this appointment?", "Delete Confirmation", MessageBoxButton.YesNo);
+                    if (messageBoxResult == MessageBoxResult.Yes)
+                    {
+                        context.SaveChanges();
+                        MessageBox.Show("the appointment is deleted");
+                        context.doctor_schedule.Load();
+                        doctor_scheduleViewSource.Source = context.doctor_schedule.Local;
+                    }
+                }
+            }
+            catch
+            {
+                MessageBox.Show("there is no appointment selected");
             }
         }
 
         private void btAdd_Click(object sender, RoutedEventArgs e)
         {
-           //maybe need to open another window?
+            DlgAddAppointment dlgAddAppointment = new DlgAddAppointment();
+            dlgAddAppointment.Show();
         }
     }
 }

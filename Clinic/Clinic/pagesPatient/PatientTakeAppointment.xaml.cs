@@ -35,6 +35,7 @@ namespace Clinic.pagesPatient
         {
             context.display_available_slots.Load();
             display_available_slotsViewSource.Source = context.display_available_slots.Local;
+            
         }
 
 

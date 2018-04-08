@@ -354,7 +354,6 @@ C:\Users\Jay\Documents\ClinicNew\Clinic\Clinic\obj\Debug\pages\AddAvailability.g
 C:\Users\Jay\Documents\ClinicNew\Clinic\Clinic\obj\Debug\pages\DoctorDetail.g.cs
 C:\Users\Jay\Documents\ClinicNew\Clinic\Clinic\obj\Debug\MainWindow.g.cs
 C:\Users\Jay\Documents\ClinicNew\Clinic\Clinic\obj\Debug\pages\ViewPatient.g.cs
-C:\Users\Jay\Documents\ClinicNew\Clinic\Clinic\obj\Debug\pages\ViewSchedule.g.cs
 C:\Users\Jay\Documents\ClinicNew\Clinic\Clinic\obj\Debug\App.g.cs
 C:\Users\Jay\Documents\ClinicNew\Clinic\Clinic\obj\Debug\Clinic_MarkupCompile.cache
 C:\Users\Jay\Documents\ClinicNew\Clinic\Clinic\obj\Debug\Clinic_MarkupCompile.lref
@@ -369,7 +368,6 @@ C:\Users\Jay\Documents\ClinicNew\Clinic\Clinic\obj\Debug\pages\AddAvailability.b
 C:\Users\Jay\Documents\ClinicNew\Clinic\Clinic\obj\Debug\pages\DoctorDetail.baml
 C:\Users\Jay\Documents\ClinicNew\Clinic\Clinic\obj\Debug\MainWindow.baml
 C:\Users\Jay\Documents\ClinicNew\Clinic\Clinic\obj\Debug\pages\ViewPatient.baml
-C:\Users\Jay\Documents\ClinicNew\Clinic\Clinic\obj\Debug\pages\ViewSchedule.baml
 C:\Users\Jay\Documents\ClinicNew\Clinic\Clinic\obj\Debug\Clinic.g.resources
 C:\Users\Jay\Documents\ClinicNew\Clinic\Clinic\obj\Debug\Clinic.Properties.Resources.resources
 C:\Users\Jay\Documents\ClinicNew\Clinic\Clinic\obj\Debug\Users.csproj.GenerateResource.cache
@@ -388,3 +386,7 @@ C:\Users\Jay\Documents\ClinicNew\Clinic\Clinic\obj\Debug\pagesPatient\PatientVie
 C:\Users\Jay\Documents\ClinicNew\Clinic\Clinic\obj\Debug\Patient.baml
 C:\Users\Jay\Documents\ClinicNew\Clinic\Clinic\obj\Debug\pagesAdmin\DlgAddPatient.g.cs
 C:\Users\Jay\Documents\ClinicNew\Clinic\Clinic\obj\Debug\pagesAdmin\DlgAddPatient.baml
+C:\Users\Jay\Documents\ClinicNew\Clinic\Clinic\obj\Debug\pages\ViewAppointments.g.cs
+C:\Users\Jay\Documents\ClinicNew\Clinic\Clinic\obj\Debug\pages\ViewAppointments.baml
+C:\Users\Jay\Documents\ClinicNew\Clinic\Clinic\obj\Debug\pagesAdmin\DlgAddAppointment.g.cs
+C:\Users\Jay\Documents\ClinicNew\Clinic\Clinic\obj\Debug\pagesAdmin\DlgAddAppointment.baml

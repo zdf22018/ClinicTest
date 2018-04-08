@@ -33,7 +33,7 @@ namespace Clinic
 
         private void btViewAppointments_Click(object sender, RoutedEventArgs e)
         {
-            DoctorMainFrame.Content = new ViewSchedule();
+            DoctorMainFrame.Content = new ViewAppointments();
         }
 
         private void btViewPatients_Click(object sender, RoutedEventArgs e)

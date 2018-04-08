@@ -8,10 +8,10 @@
         Title="Admin" Height="450" Width="800">
     <Grid>
         <Button x:Name="btManageDoctors" Content="Manage Doctors" HorizontalAlignment="Left" Margin="36,34,30,5" VerticalAlignment="Top" Width="120" Click="btManageDoctors_Click"/>
-        <Button x:Name="btManagePatients" Content="Manage Patients" HorizontalAlignment="Left" Margin="144,34,30,5" VerticalAlignment="Top" Width="120" Click="btManagePatients_Click"/>
-        <Button x:Name="btManageAppointments" Content="Manage Appointments" HorizontalAlignment="Left" Margin="247,34,30,5" VerticalAlignment="Top" Width="120" Click="btManageAppointments_Click"/>
-        <Button x:Name="btManageTimeSlots" Content="Manage Time Slots" HorizontalAlignment="Left" Margin="364,34,30,5" VerticalAlignment="Top" Width="120" Click="btManageTimeSlots_Click"/>
-        <Button x:Name="btLogout" Content="Log out" HorizontalAlignment="Left" Margin="465,34,10,5" VerticalAlignment="Top" Width="120" Click="btLogout_Click"/>
+        <Button x:Name="btManagePatients" Content="Manage Patients" HorizontalAlignment="Left" Margin="173,34,0,0" VerticalAlignment="Top" Width="120" Click="btManagePatients_Click"/>
+        <Button x:Name="btManageAppointments" Content="Manage Appointments" HorizontalAlignment="Left" Margin="308,34,0,0" VerticalAlignment="Top" Width="169" Click="btManageAppointments_Click"/>
+        <Button x:Name="btManageTimeSlots" Content="Manage Time Slots" HorizontalAlignment="Left" Margin="491,34,0,0" VerticalAlignment="Top" Width="120" Click="btManageTimeSlots_Click"/>
+        <Button x:Name="btLogout" Content="Log out" HorizontalAlignment="Left" Margin="625,34,0,0" VerticalAlignment="Top" Width="120" Click="btLogout_Click"/>
         <Frame x:Name="FrameAdmin" Margin="10,87,-10,-11" NavigationUIVisibility="Hidden"></Frame>
     </Grid>
 </Window>

@@ -9,11 +9,11 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="PatientViewAppointments" Loaded="Page_Loaded" >
     <Page.Resources>
-        
+
         <CollectionViewSource x:Key="display_appointements_for_PatientViewSource" d:DesignSource="{d:DesignInstance {x:Type DAL:display_appointements_for_Patient}, CreateList=True}"/>
     </Page.Resources>
     <Grid  DataContext="{StaticResource display_appointements_for_PatientViewSource}">
-        <ListView x:Name="display_appointements_for_PatientListView" ItemsSource="{Binding Source={StaticResource display_appointements_for_PatientViewSource}}" Margin="40,54,212,166" SelectionMode="Single">
+        <ListView x:Name="display_appointements_for_PatientListView" ItemsSource="{Binding Source={StaticResource display_appointements_for_PatientViewSource}}" Margin="40,54,267,166" SelectionMode="Single">
             <ListView.ItemContainerStyle>
                 <Style>
                     <Setter Property="Control.HorizontalContentAlignment" Value="Stretch"/>
@@ -22,22 +22,22 @@
             </ListView.ItemContainerStyle>
             <ListView.View>
                 <GridView>
-                    <GridViewColumn x:Name="doctorColumn" Header="Doctor" Width="80">
+                    <GridViewColumn x:Name="doctorColumn" Header="Doctor" Width="130">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
                                 <Label Content="{Binding Doctor}" Margin="6,-1,-6,-1"/>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
-                    
-                    <GridViewColumn x:Name="startColumn" Header="Start" Width="120">
+
+                    <GridViewColumn x:Name="startColumn" Header="Start" Width="130">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
                                 <Label Content="{Binding Start}" Margin="-6,-1"/>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
-                    <GridViewColumn x:Name="endColumn" Header="End" Width="120">
+                    <GridViewColumn x:Name="endColumn" Header="End" Width="130">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
                                 <Label Content="{Binding End}" Margin="-6,-1"/>
@@ -47,7 +47,7 @@
                 </GridView>
             </ListView.View>
         </ListView>
-        <Button x:Name="btCancelAppointment" Content="Cancel Selected Appointment" HorizontalAlignment="Left" Margin="642,77,0,0" VerticalAlignment="Top" Width="75" Click="btCancelAppointment_Click"/>
+        <Button x:Name="btCancelAppointment" Content="Cancel Selected Appointment" HorizontalAlignment="Left" Margin="562,86,0,0" VerticalAlignment="Top" Width="206" Click="btCancelAppointment_Click"/>
     </Grid>
 
 </Page>
