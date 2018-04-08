@@ -2,6 +2,7 @@
 
 FC:\Users\Jay\Documents\ClinicNew\Clinic\Clinic\Admin.xaml;;
 FC:\Users\Jay\Documents\ClinicNew\Clinic\Clinic\Login.xaml;;
+FC:\Users\Jay\Documents\ClinicNew\Clinic\Clinic\pagesAdmin\DlgAddAppointment.xaml;;
 FC:\Users\Jay\Documents\ClinicNew\Clinic\Clinic\pagesAdmin\DlgAddDoctor.xaml;;
 FC:\Users\Jay\Documents\ClinicNew\Clinic\Clinic\pagesAdmin\DlgAddPatient.xaml;;
 FC:\Users\Jay\Documents\ClinicNew\Clinic\Clinic\pagesAdmin\ManageAppointments.xaml;;
@@ -17,5 +18,4 @@ FC:\Users\Jay\Documents\ClinicNew\Clinic\Clinic\MainWindow.xaml;;
 FC:\Users\Jay\Documents\ClinicNew\Clinic\Clinic\pages\ViewAppointments.xaml;;
 FC:\Users\Jay\Documents\ClinicNew\Clinic\Clinic\pages\ViewPatient.xaml;;
 FC:\Users\Jay\Documents\ClinicNew\Clinic\Clinic\Patient.xaml;;
-FC:\Users\Jay\Documents\ClinicNew\Clinic\Clinic\pagesAdmin\DlgAddAppointment.xaml;;
 

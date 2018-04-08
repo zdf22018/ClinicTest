@@ -13,7 +13,7 @@
     </Window.Resources>
     <Grid DataContext="{StaticResource display_available_slotsViewSource}">
 
-        <DataGrid x:Name="display_available_slotsDataGrid" RowDetailsVisibilityMode="VisibleWhenSelected" Margin="76,75,316,214" ItemsSource="{Binding}" EnableRowVirtualization="True" AutoGenerateColumns="False">
+        <DataGrid x:Name="display_available_slotsDataGrid" RowDetailsVisibilityMode="VisibleWhenSelected" Margin="10,75,377,174" ItemsSource="{Binding}" EnableRowVirtualization="True" AutoGenerateColumns="False">
             <DataGrid.Columns>
                 <DataGridTemplateColumn x:Name="doctorColumn" Width="100" Header="Doctor">
                     <DataGridTemplateColumn.CellTemplate>
@@ -22,17 +22,18 @@
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
-                <DataGridTemplateColumn x:Name="endColumn" Width="110" Header="End">
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <Label Content="{Binding End}"/>
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
-                <DataGridTemplateColumn x:Name="startColumn" Width="110" Header="Start">
+                
+                <DataGridTemplateColumn x:Name="startColumn" Width="120" Header="Start">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <Label Content="{Binding Start}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn x:Name="endColumn" Width="120" Header="End">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Label Content="{Binding End}"/>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
@@ -46,13 +47,13 @@
             </DataGrid.Columns>
         </DataGrid>
         <Label Content="Doctor" HorizontalAlignment="Left" Margin="57,17,0,0" VerticalAlignment="Top" Width="62"/>
-        <TextBox x:Name ="tbName" HorizontalAlignment="Left" Height="23" Margin="104,18,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" TextChanged="tbName_TextChanged"/>
+        <TextBox x:Name ="tbName" HorizontalAlignment="Left" Height="23" Margin="104,18,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" />
         <Label Content="From" HorizontalAlignment="Left" Margin="264,17,0,0" VerticalAlignment="Top"/>
-        <DatePicker x:Name="dpFrom" HorizontalAlignment="Left" Margin="297,18,0,0" VerticalAlignment="Top" SelectedDateChanged="dpFrom_SelectedDateChanged"/>
+        <DatePicker x:Name="dpFrom" HorizontalAlignment="Left" Margin="297,18,0,0" VerticalAlignment="Top" />
         <Label Content="To" HorizontalAlignment="Left" Margin="432,20,0,0" VerticalAlignment="Top" Width="27"/>
-        <DatePicker x:Name="dpTo" HorizontalAlignment="Left" Margin="474,18,0,0" VerticalAlignment="Top" SelectedDateChanged="dpTo_SelectedDateChanged" Width="129"/>
-        <Button x:Name ="btTakeAppointment" Content="Make New Appointment" HorizontalAlignment="Left" Margin="570,93,0,0" VerticalAlignment="Top" Width="180" Click="btTakeAppointment_Click" />
-        <ListView x:Name="patientListView" ItemsSource="{Binding Source={StaticResource patientViewSource}}" Margin="87,254,316,62" SelectionMode="Single">
+        <DatePicker x:Name="dpTo" HorizontalAlignment="Left" Margin="474,18,0,0" VerticalAlignment="Top" Width="129"/>
+        <Button x:Name ="btTakeAppointment" Content="Make New Appointment" HorizontalAlignment="Left" Margin="432,223,0,0" VerticalAlignment="Top" Width="180" Click="btTakeAppointment_Click" />
+        <ListView x:Name="patientListView" ItemsSource="{Binding Source={StaticResource patientViewSource}}" Margin="10,306,518,10" SelectionMode="Single">
             <ListView.ItemContainerStyle>
                 <Style>
                     <Setter Property="Control.HorizontalContentAlignment" Value="Stretch"/>
@@ -61,7 +62,7 @@
             </ListView.ItemContainerStyle>
             <ListView.View>
                 <GridView>
-                    <GridViewColumn x:Name="fullNameColumn" Header="Full Name" Width="120">
+                    <GridViewColumn x:Name="fullNameColumn" Header="Full Name" Width="140">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
                                 <Label Content="{Binding FullName}" Margin="6,-1,-6,-1"/>
@@ -78,10 +79,11 @@
                 </GridView>
             </ListView.View>
         </ListView>
-        <Label Content="Choose Patient" HorizontalAlignment="Left" Margin="85,224,0,0" VerticalAlignment="Top"/>
-        <Label Content="choose spot " HorizontalAlignment="Left" Margin="85,48,0,0" VerticalAlignment="Top" Width="99"/>
-        <Label Content="You can type for quick filter" HorizontalAlignment="Left" Margin="196,224,0,0" VerticalAlignment="Top" Width="155"/>
-        <TextBox x:Name="tbPatientName" HorizontalAlignment="Left" Height="23" Margin="356,224,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" TextChanged="tbPatientName_TextChanged"/>
+        <Label Content="Choose Patient" HorizontalAlignment="Left" Margin="10,259,0,0" VerticalAlignment="Top"/>
+        <Label Content="choose spot " HorizontalAlignment="Left" Margin="10,44,0,0" VerticalAlignment="Top" Width="99"/>
+        <Label Content="You can type for quick filter" HorizontalAlignment="Left" Margin="104,260,0,0" VerticalAlignment="Top" Width="155"/>
+        <TextBox x:Name="tbPatientName" HorizontalAlignment="Left" Height="23" Margin="259,259,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" TextChanged="tbPatientName_TextChanged"/>
+        <Button x:Name ="btSearch" Content="Search" HorizontalAlignment="Left" Margin="474,66,0,0" VerticalAlignment="Top" Width="129" Click="btSearch_Click" />
 
     </Grid>
 </Window>

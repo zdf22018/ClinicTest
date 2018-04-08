@@ -20,7 +20,7 @@
         <DatePicker x:Name="dpTo" HorizontalAlignment="Left" Margin="593,89,0,0" VerticalAlignment="Top" SelectedDateChanged="dpTo_SelectedDateChanged"/>
         <Label Content="Doctor Name" HorizontalAlignment="Left" Margin="72,110,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="TBName" HorizontalAlignment="Left" Height="23" Margin="160,110,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" TextChanged="TBName_TextChanged"/>
-        <Button x:Name="btUpdate" Content="Update Appointment" HorizontalAlignment="Left" Margin="686,164,0,0" VerticalAlignment="Top" Width="144" Click="btUpdate_Click" RenderTransformOrigin="0.69,0.5" />
+       
         <Button x:Name="btDelete" Content="Delete Appointment" HorizontalAlignment="Left" Margin="685,217,0,0" VerticalAlignment="Top" Width="145" Click="btDelete_Click" RenderTransformOrigin="0.838,0.182"/>
         <Button x:Name="btAdd" Content="Add Appointment" HorizontalAlignment="Left" Margin="685,264,0,0" VerticalAlignment="Top" Width="145" Click="btAdd_Click" />
         <Label Content="Patient" HorizontalAlignment="Left" Margin="74,75,0,0" VerticalAlignment="Top"/>

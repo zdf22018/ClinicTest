@@ -1,5 +1,7 @@
-﻿using System;
+﻿using DAL;
+using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,9 +22,40 @@ namespace Clinic.pagesAdmin
     /// </summary>
     public partial class ManageTimeSlots : Page
     {
+        clinicEntities context = new clinicEntities();
+        CollectionViewSource display_available_slotsViewSource;
         public ManageTimeSlots()
         {
             InitializeComponent();
+            display_available_slotsViewSource = ((CollectionViewSource)(this.FindResource("display_available_slotsViewSource")));
+        }
+
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            context.display_available_slots.Load();
+            display_available_slotsViewSource.Source = context.display_available_slots.Local;
+        }
+
+        private void Delete_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                using (clinicEntities context = new clinicEntities())
+                {
+                    display_available_slots s = (display_available_slots)display_available_slotsDataGrid.SelectedItem;
+                    int slotId = s.TimeSoltId;
+                    context.timeslots.Remove(context.timeslots.Find(slotId));
+                    MessageBoxResult messageBoxResult = MessageBox.Show("Are you sure to delete this time slot?", "Delete Confirmation", MessageBoxButton.YesNo);
+                    if (messageBoxResult == MessageBoxResult.Yes)
+                    {
+                        context.SaveChanges();
+                        MessageBox.Show("the slot is deleted");
+                        context.display_available_slots.Load();
+                        display_available_slotsViewSource.Source = context.display_available_slots.Local;
+                    }
+                }
+            }
+            catch { MessageBox.Show("nothing is selected"); }
         }
     }
 }

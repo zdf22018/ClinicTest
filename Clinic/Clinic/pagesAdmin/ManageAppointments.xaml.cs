@@ -107,7 +107,7 @@ namespace Clinic.pagesAdmin
 
                     if (m != null)
                     {
-                        if ( m.Start >dpFrom.SelectedDate)
+                        if ( m.Start >=dpFrom.SelectedDate)
                             return true;
                     }
                     return false;
@@ -131,7 +131,7 @@ namespace Clinic.pagesAdmin
 
                     if (m != null)
                     {
-                        if (m.End < dpTo.SelectedDate)
+                        if (m.End <= dpTo.SelectedDate.Value.AddDays(1))
                             return true;
                     }
                     return false;
@@ -139,12 +139,7 @@ namespace Clinic.pagesAdmin
             }
         }
 
-        private void btUpdate_Click(object sender, RoutedEventArgs e)
-        {
-           // doctor_scheduleDataGrid 
-
-            context.SaveChanges();
-        }
+       
 
         private void btDelete_Click(object sender, RoutedEventArgs e)
         {
