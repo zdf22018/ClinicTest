@@ -56,7 +56,6 @@
     <Compile Include="availability.cs">
       <DependentUpon>ModelClinic.tt</DependentUpon>
     </Compile>
-    <Compile Include="CRUD.cs" />
     <Compile Include="database_firewall_rules.cs">
       <DependentUpon>ModelClinic.tt</DependentUpon>
     </Compile>

@@ -44,18 +44,38 @@ namespace Clinic.pagesAdmin
                 {
                     display_available_slots s = (display_available_slots)display_available_slotsDataGrid.SelectedItem;
                     int slotId = s.TimeSoltId;
+                    int AvailabilityId = 0;
+                                       
                     context.timeslots.Remove(context.timeslots.Find(slotId));
+                    
+                    
                     MessageBoxResult messageBoxResult = MessageBox.Show("Are you sure to delete this time slot?", "Delete Confirmation", MessageBoxButton.YesNo);
                     if (messageBoxResult == MessageBoxResult.Yes)
                     {
+                        
                         context.SaveChanges();
                         MessageBox.Show("the slot is deleted");
                         context.display_available_slots.Load();
                         display_available_slotsViewSource.Source = context.display_available_slots.Local;
                     }
+                    // check in timeslots table, if no more availabilityId exists, meaning that availability can be deleted
+                    var list = context.timeslots;
+                    foreach (timeslot t in list)
+                    {   
+                        if (t.Id==slotId)
+                        {
+                            AvailabilityId = t.AvailabilityId;                           
+                        }
+                    }
+                    if (AvailabilityId==0)
+                    {
+                        context.availabilities.Remove(context.availabilities.Find(AvailabilityId));
+                        context.SaveChanges();
+                    }
                 }
             }
-            catch { MessageBox.Show("nothing is selected"); }
+            catch (System.InvalidCastException ex) { MessageBox.Show("Exception caught: {0}", ex.ToString()); }
+            finally{ MessageBox.Show("nothing is selected"); }
         }
     }
 }
