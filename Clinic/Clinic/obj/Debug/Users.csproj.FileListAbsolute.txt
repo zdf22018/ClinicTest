@@ -262,7 +262,6 @@ C:\Users\ITC\Documents\ClinicTest\Clinic\Clinic\obj\Debug\pages\AddAvailability.
 C:\Users\ITC\Documents\ClinicTest\Clinic\Clinic\obj\Debug\pages\DoctorDetail.g.cs
 C:\Users\ITC\Documents\ClinicTest\Clinic\Clinic\obj\Debug\MainWindow.g.cs
 C:\Users\ITC\Documents\ClinicTest\Clinic\Clinic\obj\Debug\pages\ViewPatient.g.cs
-C:\Users\ITC\Documents\ClinicTest\Clinic\Clinic\obj\Debug\pages\ViewSchedule.g.cs
 C:\Users\ITC\Documents\ClinicTest\Clinic\Clinic\obj\Debug\App.g.cs
 C:\Users\ITC\Documents\ClinicTest\Clinic\Clinic\obj\Debug\Clinic_MarkupCompile.cache
 C:\Users\ITC\Documents\ClinicTest\Clinic\Clinic\obj\Debug\Clinic_MarkupCompile.lref
@@ -277,7 +276,6 @@ C:\Users\ITC\Documents\ClinicTest\Clinic\Clinic\obj\Debug\pages\AddAvailability.
 C:\Users\ITC\Documents\ClinicTest\Clinic\Clinic\obj\Debug\pages\DoctorDetail.baml
 C:\Users\ITC\Documents\ClinicTest\Clinic\Clinic\obj\Debug\MainWindow.baml
 C:\Users\ITC\Documents\ClinicTest\Clinic\Clinic\obj\Debug\pages\ViewPatient.baml
-C:\Users\ITC\Documents\ClinicTest\Clinic\Clinic\obj\Debug\pages\ViewSchedule.baml
 C:\Users\ITC\Documents\ClinicTest\Clinic\Clinic\obj\Debug\Clinic.g.resources
 C:\Users\ITC\Documents\ClinicTest\Clinic\Clinic\obj\Debug\Clinic.Properties.Resources.resources
 C:\Users\ITC\Documents\ClinicTest\Clinic\Clinic\obj\Debug\Users.csproj.GenerateResource.Cache
@@ -390,3 +388,17 @@ C:\Users\Jay\Documents\ClinicNew\Clinic\Clinic\obj\Debug\pages\ViewAppointments.
 C:\Users\Jay\Documents\ClinicNew\Clinic\Clinic\obj\Debug\pages\ViewAppointments.baml
 C:\Users\Jay\Documents\ClinicNew\Clinic\Clinic\obj\Debug\pagesAdmin\DlgAddAppointment.g.cs
 C:\Users\Jay\Documents\ClinicNew\Clinic\Clinic\obj\Debug\pagesAdmin\DlgAddAppointment.baml
+C:\Users\ITC\Documents\ClinicTest\Clinic\Clinic\obj\Debug\pagesAdmin\DlgAddAppointment.g.cs
+C:\Users\ITC\Documents\ClinicTest\Clinic\Clinic\obj\Debug\pagesAdmin\DlgAddPatient.g.cs
+C:\Users\ITC\Documents\ClinicTest\Clinic\Clinic\obj\Debug\pagesPatient\PatientDetail.g.cs
+C:\Users\ITC\Documents\ClinicTest\Clinic\Clinic\obj\Debug\pagesPatient\PatientTakeAppointment.g.cs
+C:\Users\ITC\Documents\ClinicTest\Clinic\Clinic\obj\Debug\pagesPatient\PatientViewAppointments.g.cs
+C:\Users\ITC\Documents\ClinicTest\Clinic\Clinic\obj\Debug\pages\ViewAppointments.g.cs
+C:\Users\ITC\Documents\ClinicTest\Clinic\Clinic\obj\Debug\Patient.g.cs
+C:\Users\ITC\Documents\ClinicTest\Clinic\Clinic\obj\Debug\pagesAdmin\DlgAddAppointment.baml
+C:\Users\ITC\Documents\ClinicTest\Clinic\Clinic\obj\Debug\pagesAdmin\DlgAddPatient.baml
+C:\Users\ITC\Documents\ClinicTest\Clinic\Clinic\obj\Debug\pagesPatient\PatientDetail.baml
+C:\Users\ITC\Documents\ClinicTest\Clinic\Clinic\obj\Debug\pagesPatient\PatientTakeAppointment.baml
+C:\Users\ITC\Documents\ClinicTest\Clinic\Clinic\obj\Debug\pagesPatient\PatientViewAppointments.baml
+C:\Users\ITC\Documents\ClinicTest\Clinic\Clinic\obj\Debug\pages\ViewAppointments.baml
+C:\Users\ITC\Documents\ClinicTest\Clinic\Clinic\obj\Debug\Patient.baml
