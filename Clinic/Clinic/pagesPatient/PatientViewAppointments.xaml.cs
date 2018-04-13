@@ -48,32 +48,42 @@ namespace Clinic.pagesPatient
         }
 
         private void btCancelAppointment_Click(object sender, RoutedEventArgs e)
-        {   try
-            {   using (clinicEntities context = new clinicEntities()) { 
-                display_appointements_for_Patient app = (display_appointements_for_Patient)display_appointements_for_PatientListView.SelectedItem;
-                int timeslot = app.TimeSlotId;
-                int appointmentId = app.appointmentId;
-                var app1 = context.appointments.Find(appointmentId);
-                context.timeslots.Find(timeslot).IsAvailable = true;
-                context.appointments.Remove(app1);
-                MessageBoxResult messageBoxResult = MessageBox.Show("Are you sure to delete this appointment?", "Delete Confirmation", MessageBoxButton.YesNo);
-                if (messageBoxResult == MessageBoxResult.Yes)
+        {
+            try
+            {
+                using (clinicEntities context = new clinicEntities())
                 {
-                    context.SaveChanges();
-                    MessageBox.Show("the appointment cancelled");
-                    context.display_appointements_for_Patient.Load();
-                    display_appointements_for_PatientViewSource.Source = context.display_appointements_for_Patient.Local;
-                        display_appointements_for_PatientViewSource.View.Filter = item =>
-                        {
-                            display_appointements_for_Patient m = item as display_appointements_for_Patient;
-                            if (m != null)
-                            {
-                                if (m.PatientId.Equals(Globals.SessionId))
-                                    return true;
-                            }
-                            return false;
-                        };
+                    display_appointements_for_Patient app = (display_appointements_for_Patient)display_appointements_for_PatientListView.SelectedItem;
+                    int timeslot = app.TimeSlotId;
+                    int appointmentId = app.appointmentId;
+                    var app1 = context.appointments.Find(appointmentId);
+                    // check if the appointment to be cancelled is 48 hours away, if it is less then 48 hours away, it cannot be canncelled
+                    int hoursAhead = (app.Start - DateTime.Now).Value.Hours;
+                    if (hoursAhead < 48) { MessageBox.Show("you cannot cancel this appointment which is within 48 hours, please contact office"); }
 
+                    else
+                    {
+                        context.timeslots.Find(timeslot).IsAvailable = true;
+                        context.appointments.Remove(app1);
+                        MessageBoxResult messageBoxResult = MessageBox.Show("Are you sure to delete this appointment?", "Delete Confirmation", MessageBoxButton.YesNo);
+                        if (messageBoxResult == MessageBoxResult.Yes)
+                        {
+                            context.SaveChanges();
+                            MessageBox.Show("the appointment cancelled");
+                            context.display_appointements_for_Patient.Load();
+                            display_appointements_for_PatientViewSource.Source = context.display_appointements_for_Patient.Local;
+                            display_appointements_for_PatientViewSource.View.Filter = item =>
+                            {
+                                display_appointements_for_Patient m = item as display_appointements_for_Patient;
+                                if (m != null)
+                                {
+                                    if (m.PatientId.Equals(Globals.SessionId))
+                                        return true;
+                                }
+                                return false;
+                            };
+
+                        }
                     }
                 }
             }
@@ -81,7 +91,7 @@ namespace Clinic.pagesPatient
             {
                 MessageBox.Show("there is no appointment selected");
             }
-          
+
         }
     }
 }

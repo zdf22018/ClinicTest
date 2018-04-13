@@ -123,12 +123,12 @@ namespace Clinic.pagesPatient
                 // get the selected item from grid
                 display_available_slots slot = (display_available_slots)display_available_slotsDataGrid.SelectedItem;
                 int slotId = slot.TimeSoltId;
-                MessageBox.Show(slotId.ToString());
-                MessageBox.Show(Globals.SessionId.ToString());
+               // MessageBox.Show(slotId.ToString());
+                //MessageBox.Show(Globals.SessionId.ToString());
 
 
                 appointment app = new appointment(slotId, Globals.SessionId);
-                MessageBox.Show(app.ToString());
+               // MessageBox.Show(app.ToString());
                 context.appointments.Add(app);
                 context.SaveChanges();
 
@@ -170,20 +170,24 @@ namespace Clinic.pagesPatient
 
                         if (!string.IsNullOrWhiteSpace(txt) && dpTo.SelectedDate != null && dpFrom.SelectedDate == null) // doctor and dpTo has input
                         {
-                            if (m.Doctor.ToLower().Contains(txt) && m.Start <= dpTo.SelectedDate && m.Start >= DateTime.Today)
+                            if (m.Doctor.ToLower().Contains(txt) && m.Start <= dpTo.SelectedDate.Value.AddDays(1) && m.Start >= DateTime.Today)
                             { return true; }
                         }
 
 
                         if (!string.IsNullOrWhiteSpace(txt) && dpFrom.SelectedDate != null && dpTo.SelectedDate != null)// doctor, dpFrom, dpTo has input
-                        { if (m.Doctor.ToLower().Contains(txt) && m.Start >= dpFrom.SelectedDate && m.End <= dpTo.SelectedDate)
+                        { if (m.Doctor.ToLower().Contains(txt) && m.Start >= dpFrom.SelectedDate && m.End <= dpTo.SelectedDate.Value.AddDays(1))
                             { return true; }
                         } 
 
                         if (string.IsNullOrWhiteSpace(txt) && dpFrom.SelectedDate != null && dpTo.SelectedDate != null)// doctor empty, dpTo, doFrom filled
                         {
-                            if (m.Start >= dpFrom.SelectedDate && m.End <= dpTo.SelectedDate)
+                            if (m.Start >= dpFrom.SelectedDate && m.End <= dpTo.SelectedDate.Value.AddDays(1))
                             { return true; } 
+                        }
+                        if (string.IsNullOrWhiteSpace(txt) && dpFrom.SelectedDate==null && dpTo.SelectedDate == null)
+                        {
+                            return true;
                         }
                         
                     }
